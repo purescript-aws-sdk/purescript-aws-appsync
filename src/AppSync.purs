@@ -20,142 +20,194 @@ import Data.StrMap as StrMap
 import AWS.Request as Request
 import AWS.Request.Types as Types
 
-serviceName = "AppSync" :: String
-
 
 -- | <p>Creates a unique key that you can distribute to clients who are executing your API.</p>
 createApiKey :: forall eff. CreateApiKeyRequest -> Aff (exception :: EXCEPTION | eff) CreateApiKeyResponse
-createApiKey = Request.request serviceName "createApiKey" 
+createApiKey = Request.request service method  where
+    service = Request.ServiceName "AppSync"
+    method = Request.MethodName "createApiKey"
 
 
 -- | <p>Creates a <code>DataSource</code> object.</p>
 createDataSource :: forall eff. CreateDataSourceRequest -> Aff (exception :: EXCEPTION | eff) CreateDataSourceResponse
-createDataSource = Request.request serviceName "createDataSource" 
+createDataSource = Request.request service method  where
+    service = Request.ServiceName "AppSync"
+    method = Request.MethodName "createDataSource"
 
 
 -- | <p>Creates a <code>GraphqlApi</code> object.</p>
 createGraphqlApi :: forall eff. CreateGraphqlApiRequest -> Aff (exception :: EXCEPTION | eff) CreateGraphqlApiResponse
-createGraphqlApi = Request.request serviceName "createGraphqlApi" 
+createGraphqlApi = Request.request service method  where
+    service = Request.ServiceName "AppSync"
+    method = Request.MethodName "createGraphqlApi"
 
 
 -- | <p>Creates a <code>Resolver</code> object.</p> <p>A resolver converts incoming requests into a format that a data source can understand and converts the data source's responses into GraphQL.</p>
 createResolver :: forall eff. CreateResolverRequest -> Aff (exception :: EXCEPTION | eff) CreateResolverResponse
-createResolver = Request.request serviceName "createResolver" 
+createResolver = Request.request service method  where
+    service = Request.ServiceName "AppSync"
+    method = Request.MethodName "createResolver"
 
 
 -- | <p>Creates a <code>Type</code> object.</p>
 createType :: forall eff. CreateTypeRequest -> Aff (exception :: EXCEPTION | eff) CreateTypeResponse
-createType = Request.request serviceName "createType" 
+createType = Request.request service method  where
+    service = Request.ServiceName "AppSync"
+    method = Request.MethodName "createType"
 
 
 -- | <p>Deletes an API key.</p>
 deleteApiKey :: forall eff. DeleteApiKeyRequest -> Aff (exception :: EXCEPTION | eff) DeleteApiKeyResponse
-deleteApiKey = Request.request serviceName "deleteApiKey" 
+deleteApiKey = Request.request service method  where
+    service = Request.ServiceName "AppSync"
+    method = Request.MethodName "deleteApiKey"
 
 
 -- | <p>Deletes a <code>DataSource</code> object.</p>
 deleteDataSource :: forall eff. DeleteDataSourceRequest -> Aff (exception :: EXCEPTION | eff) DeleteDataSourceResponse
-deleteDataSource = Request.request serviceName "deleteDataSource" 
+deleteDataSource = Request.request service method  where
+    service = Request.ServiceName "AppSync"
+    method = Request.MethodName "deleteDataSource"
 
 
 -- | <p>Deletes a <code>GraphqlApi</code> object.</p>
 deleteGraphqlApi :: forall eff. DeleteGraphqlApiRequest -> Aff (exception :: EXCEPTION | eff) DeleteGraphqlApiResponse
-deleteGraphqlApi = Request.request serviceName "deleteGraphqlApi" 
+deleteGraphqlApi = Request.request service method  where
+    service = Request.ServiceName "AppSync"
+    method = Request.MethodName "deleteGraphqlApi"
 
 
 -- | <p>Deletes a <code>Resolver</code> object.</p>
 deleteResolver :: forall eff. DeleteResolverRequest -> Aff (exception :: EXCEPTION | eff) DeleteResolverResponse
-deleteResolver = Request.request serviceName "deleteResolver" 
+deleteResolver = Request.request service method  where
+    service = Request.ServiceName "AppSync"
+    method = Request.MethodName "deleteResolver"
 
 
 -- | <p>Deletes a <code>Type</code> object.</p>
 deleteType :: forall eff. DeleteTypeRequest -> Aff (exception :: EXCEPTION | eff) DeleteTypeResponse
-deleteType = Request.request serviceName "deleteType" 
+deleteType = Request.request service method  where
+    service = Request.ServiceName "AppSync"
+    method = Request.MethodName "deleteType"
 
 
 -- | <p>Retrieves a <code>DataSource</code> object.</p>
 getDataSource :: forall eff. GetDataSourceRequest -> Aff (exception :: EXCEPTION | eff) GetDataSourceResponse
-getDataSource = Request.request serviceName "getDataSource" 
+getDataSource = Request.request service method  where
+    service = Request.ServiceName "AppSync"
+    method = Request.MethodName "getDataSource"
 
 
 -- | <p>Retrieves a <code>GraphqlApi</code> object.</p>
 getGraphqlApi :: forall eff. GetGraphqlApiRequest -> Aff (exception :: EXCEPTION | eff) GetGraphqlApiResponse
-getGraphqlApi = Request.request serviceName "getGraphqlApi" 
+getGraphqlApi = Request.request service method  where
+    service = Request.ServiceName "AppSync"
+    method = Request.MethodName "getGraphqlApi"
 
 
 -- | <p>Retrieves the introspection schema for a GraphQL API.</p>
 getIntrospectionSchema :: forall eff. GetIntrospectionSchemaRequest -> Aff (exception :: EXCEPTION | eff) GetIntrospectionSchemaResponse
-getIntrospectionSchema = Request.request serviceName "getIntrospectionSchema" 
+getIntrospectionSchema = Request.request service method  where
+    service = Request.ServiceName "AppSync"
+    method = Request.MethodName "getIntrospectionSchema"
 
 
 -- | <p>Retrieves a <code>Resolver</code> object.</p>
 getResolver :: forall eff. GetResolverRequest -> Aff (exception :: EXCEPTION | eff) GetResolverResponse
-getResolver = Request.request serviceName "getResolver" 
+getResolver = Request.request service method  where
+    service = Request.ServiceName "AppSync"
+    method = Request.MethodName "getResolver"
 
 
 -- | <p>Retrieves the current status of a schema creation operation.</p>
 getSchemaCreationStatus :: forall eff. GetSchemaCreationStatusRequest -> Aff (exception :: EXCEPTION | eff) GetSchemaCreationStatusResponse
-getSchemaCreationStatus = Request.request serviceName "getSchemaCreationStatus" 
+getSchemaCreationStatus = Request.request service method  where
+    service = Request.ServiceName "AppSync"
+    method = Request.MethodName "getSchemaCreationStatus"
 
 
 -- | <p>Retrieves a <code>Type</code> object.</p>
 getType :: forall eff. GetTypeRequest -> Aff (exception :: EXCEPTION | eff) GetTypeResponse
-getType = Request.request serviceName "getType" 
+getType = Request.request service method  where
+    service = Request.ServiceName "AppSync"
+    method = Request.MethodName "getType"
 
 
 -- | <p>Lists the API keys for a given API.</p>
 listApiKeys :: forall eff. ListApiKeysRequest -> Aff (exception :: EXCEPTION | eff) ListApiKeysResponse
-listApiKeys = Request.request serviceName "listApiKeys" 
+listApiKeys = Request.request service method  where
+    service = Request.ServiceName "AppSync"
+    method = Request.MethodName "listApiKeys"
 
 
 -- | <p>Lists the data sources for a given API.</p>
 listDataSources :: forall eff. ListDataSourcesRequest -> Aff (exception :: EXCEPTION | eff) ListDataSourcesResponse
-listDataSources = Request.request serviceName "listDataSources" 
+listDataSources = Request.request service method  where
+    service = Request.ServiceName "AppSync"
+    method = Request.MethodName "listDataSources"
 
 
 -- | <p>Lists your GraphQL APIs.</p>
 listGraphqlApis :: forall eff. ListGraphqlApisRequest -> Aff (exception :: EXCEPTION | eff) ListGraphqlApisResponse
-listGraphqlApis = Request.request serviceName "listGraphqlApis" 
+listGraphqlApis = Request.request service method  where
+    service = Request.ServiceName "AppSync"
+    method = Request.MethodName "listGraphqlApis"
 
 
 -- | <p>Lists the resolvers for a given API and type.</p>
 listResolvers :: forall eff. ListResolversRequest -> Aff (exception :: EXCEPTION | eff) ListResolversResponse
-listResolvers = Request.request serviceName "listResolvers" 
+listResolvers = Request.request service method  where
+    service = Request.ServiceName "AppSync"
+    method = Request.MethodName "listResolvers"
 
 
 -- | <p>Lists the types for a given API.</p>
 listTypes :: forall eff. ListTypesRequest -> Aff (exception :: EXCEPTION | eff) ListTypesResponse
-listTypes = Request.request serviceName "listTypes" 
+listTypes = Request.request service method  where
+    service = Request.ServiceName "AppSync"
+    method = Request.MethodName "listTypes"
 
 
 -- | <p>Adds a new schema to your GraphQL API.</p> <p>This operation is asynchronous. Use to determine when it has completed.</p>
 startSchemaCreation :: forall eff. StartSchemaCreationRequest -> Aff (exception :: EXCEPTION | eff) StartSchemaCreationResponse
-startSchemaCreation = Request.request serviceName "startSchemaCreation" 
+startSchemaCreation = Request.request service method  where
+    service = Request.ServiceName "AppSync"
+    method = Request.MethodName "startSchemaCreation"
 
 
 -- | <p>Updates an API key.</p>
 updateApiKey :: forall eff. UpdateApiKeyRequest -> Aff (exception :: EXCEPTION | eff) UpdateApiKeyResponse
-updateApiKey = Request.request serviceName "updateApiKey" 
+updateApiKey = Request.request service method  where
+    service = Request.ServiceName "AppSync"
+    method = Request.MethodName "updateApiKey"
 
 
 -- | <p>Updates a <code>DataSource</code> object.</p>
 updateDataSource :: forall eff. UpdateDataSourceRequest -> Aff (exception :: EXCEPTION | eff) UpdateDataSourceResponse
-updateDataSource = Request.request serviceName "updateDataSource" 
+updateDataSource = Request.request service method  where
+    service = Request.ServiceName "AppSync"
+    method = Request.MethodName "updateDataSource"
 
 
 -- | <p>Updates a <code>GraphqlApi</code> object.</p>
 updateGraphqlApi :: forall eff. UpdateGraphqlApiRequest -> Aff (exception :: EXCEPTION | eff) UpdateGraphqlApiResponse
-updateGraphqlApi = Request.request serviceName "updateGraphqlApi" 
+updateGraphqlApi = Request.request service method  where
+    service = Request.ServiceName "AppSync"
+    method = Request.MethodName "updateGraphqlApi"
 
 
 -- | <p>Updates a <code>Resolver</code> object.</p>
 updateResolver :: forall eff. UpdateResolverRequest -> Aff (exception :: EXCEPTION | eff) UpdateResolverResponse
-updateResolver = Request.request serviceName "updateResolver" 
+updateResolver = Request.request service method  where
+    service = Request.ServiceName "AppSync"
+    method = Request.MethodName "updateResolver"
 
 
 -- | <p>Updates a <code>Type</code> object.</p>
 updateType :: forall eff. UpdateTypeRequest -> Aff (exception :: EXCEPTION | eff) UpdateTypeResponse
-updateType = Request.request serviceName "updateType" 
+updateType = Request.request service method  where
+    service = Request.ServiceName "AppSync"
+    method = Request.MethodName "updateType"
 
 
 -- | <p>Describes an API key.</p>
