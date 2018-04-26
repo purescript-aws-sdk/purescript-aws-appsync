@@ -10,7 +10,7 @@ options :: Options
 
 ``` purescript
 newtype ApiKey
-  = ApiKey { id :: NullOrUndefined (String), description :: NullOrUndefined (String), expires :: NullOrUndefined (Number) }
+  = ApiKey { id :: Maybe (String), description :: Maybe (String), expires :: Maybe (Number) }
 ```
 
 <p>Describes an API key.</p>
@@ -35,7 +35,7 @@ Constructs ApiKey from required parameters
 #### `newApiKey'`
 
 ``` purescript
-newApiKey' :: ({ id :: NullOrUndefined (String), description :: NullOrUndefined (String), expires :: NullOrUndefined (Number) } -> { id :: NullOrUndefined (String), description :: NullOrUndefined (String), expires :: NullOrUndefined (Number) }) -> ApiKey
+newApiKey' :: ({ id :: Maybe (String), description :: Maybe (String), expires :: Maybe (Number) } -> { id :: Maybe (String), description :: Maybe (String), expires :: Maybe (Number) }) -> ApiKey
 ```
 
 Constructs ApiKey's fields from required parameters
@@ -44,7 +44,7 @@ Constructs ApiKey's fields from required parameters
 
 ``` purescript
 newtype ApiKeyLimitExceededException
-  = ApiKeyLimitExceededException { message :: NullOrUndefined (String) }
+  = ApiKeyLimitExceededException { message :: Maybe (String) }
 ```
 
 <p>The API key exceeded a limit. Try your request again.</p>
@@ -69,7 +69,7 @@ Constructs ApiKeyLimitExceededException from required parameters
 #### `newApiKeyLimitExceededException'`
 
 ``` purescript
-newApiKeyLimitExceededException' :: ({ message :: NullOrUndefined (String) } -> { message :: NullOrUndefined (String) }) -> ApiKeyLimitExceededException
+newApiKeyLimitExceededException' :: ({ message :: Maybe (String) } -> { message :: Maybe (String) }) -> ApiKeyLimitExceededException
 ```
 
 Constructs ApiKeyLimitExceededException's fields from required parameters
@@ -78,7 +78,7 @@ Constructs ApiKeyLimitExceededException's fields from required parameters
 
 ``` purescript
 newtype ApiKeyValidityOutOfBoundsException
-  = ApiKeyValidityOutOfBoundsException { message :: NullOrUndefined (String) }
+  = ApiKeyValidityOutOfBoundsException { message :: Maybe (String) }
 ```
 
 <p>The API key expiration must be set to a value between 1 and 365 days.</p>
@@ -103,7 +103,7 @@ Constructs ApiKeyValidityOutOfBoundsException from required parameters
 #### `newApiKeyValidityOutOfBoundsException'`
 
 ``` purescript
-newApiKeyValidityOutOfBoundsException' :: ({ message :: NullOrUndefined (String) } -> { message :: NullOrUndefined (String) }) -> ApiKeyValidityOutOfBoundsException
+newApiKeyValidityOutOfBoundsException' :: ({ message :: Maybe (String) } -> { message :: Maybe (String) }) -> ApiKeyValidityOutOfBoundsException
 ```
 
 Constructs ApiKeyValidityOutOfBoundsException's fields from required parameters
@@ -128,7 +128,7 @@ Encode ApiKeys
 
 ``` purescript
 newtype ApiLimitExceededException
-  = ApiLimitExceededException { message :: NullOrUndefined (String) }
+  = ApiLimitExceededException { message :: Maybe (String) }
 ```
 
 <p>The GraphQL API exceeded a limit. Try your request again.</p>
@@ -153,7 +153,7 @@ Constructs ApiLimitExceededException from required parameters
 #### `newApiLimitExceededException'`
 
 ``` purescript
-newApiLimitExceededException' :: ({ message :: NullOrUndefined (String) } -> { message :: NullOrUndefined (String) }) -> ApiLimitExceededException
+newApiLimitExceededException' :: ({ message :: Maybe (String) } -> { message :: Maybe (String) }) -> ApiLimitExceededException
 ```
 
 Constructs ApiLimitExceededException's fields from required parameters
@@ -178,7 +178,7 @@ Encode AuthenticationType
 
 ``` purescript
 newtype BadRequestException
-  = BadRequestException { message :: NullOrUndefined (ErrorMessage) }
+  = BadRequestException { message :: Maybe (ErrorMessage) }
 ```
 
 <p>The request is not well formed. For example, a value is invalid or a required field is missing. Check the field values, and try again. </p>
@@ -203,7 +203,7 @@ Constructs BadRequestException from required parameters
 #### `newBadRequestException'`
 
 ``` purescript
-newBadRequestException' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> BadRequestException
+newBadRequestException' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> BadRequestException
 ```
 
 Constructs BadRequestException's fields from required parameters
@@ -212,7 +212,7 @@ Constructs BadRequestException's fields from required parameters
 
 ``` purescript
 newtype ConcurrentModificationException
-  = ConcurrentModificationException { message :: NullOrUndefined (ErrorMessage) }
+  = ConcurrentModificationException { message :: Maybe (ErrorMessage) }
 ```
 
 <p>Another modification is being made. That modification must complete before you can make your change. </p>
@@ -237,7 +237,7 @@ Constructs ConcurrentModificationException from required parameters
 #### `newConcurrentModificationException'`
 
 ``` purescript
-newConcurrentModificationException' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> ConcurrentModificationException
+newConcurrentModificationException' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> ConcurrentModificationException
 ```
 
 Constructs ConcurrentModificationException's fields from required parameters
@@ -246,7 +246,7 @@ Constructs ConcurrentModificationException's fields from required parameters
 
 ``` purescript
 newtype CreateApiKeyRequest
-  = CreateApiKeyRequest { apiId :: String, description :: NullOrUndefined (String), expires :: NullOrUndefined (Number) }
+  = CreateApiKeyRequest { apiId :: String, description :: Maybe (String), expires :: Maybe (Number) }
 ```
 
 ##### Instances
@@ -269,7 +269,7 @@ Constructs CreateApiKeyRequest from required parameters
 #### `newCreateApiKeyRequest'`
 
 ``` purescript
-newCreateApiKeyRequest' :: String -> ({ apiId :: String, description :: NullOrUndefined (String), expires :: NullOrUndefined (Number) } -> { apiId :: String, description :: NullOrUndefined (String), expires :: NullOrUndefined (Number) }) -> CreateApiKeyRequest
+newCreateApiKeyRequest' :: String -> ({ apiId :: String, description :: Maybe (String), expires :: Maybe (Number) } -> { apiId :: String, description :: Maybe (String), expires :: Maybe (Number) }) -> CreateApiKeyRequest
 ```
 
 Constructs CreateApiKeyRequest's fields from required parameters
@@ -278,7 +278,7 @@ Constructs CreateApiKeyRequest's fields from required parameters
 
 ``` purescript
 newtype CreateApiKeyResponse
-  = CreateApiKeyResponse { apiKey :: NullOrUndefined (ApiKey) }
+  = CreateApiKeyResponse { apiKey :: Maybe (ApiKey) }
 ```
 
 ##### Instances
@@ -301,7 +301,7 @@ Constructs CreateApiKeyResponse from required parameters
 #### `newCreateApiKeyResponse'`
 
 ``` purescript
-newCreateApiKeyResponse' :: ({ apiKey :: NullOrUndefined (ApiKey) } -> { apiKey :: NullOrUndefined (ApiKey) }) -> CreateApiKeyResponse
+newCreateApiKeyResponse' :: ({ apiKey :: Maybe (ApiKey) } -> { apiKey :: Maybe (ApiKey) }) -> CreateApiKeyResponse
 ```
 
 Constructs CreateApiKeyResponse's fields from required parameters
@@ -310,7 +310,7 @@ Constructs CreateApiKeyResponse's fields from required parameters
 
 ``` purescript
 newtype CreateDataSourceRequest
-  = CreateDataSourceRequest { apiId :: String, name :: ResourceName, description :: NullOrUndefined (String), "type" :: DataSourceType, serviceRoleArn :: NullOrUndefined (String), dynamodbConfig :: NullOrUndefined (DynamodbDataSourceConfig), lambdaConfig :: NullOrUndefined (LambdaDataSourceConfig), elasticsearchConfig :: NullOrUndefined (ElasticsearchDataSourceConfig) }
+  = CreateDataSourceRequest { apiId :: String, name :: ResourceName, description :: Maybe (String), "type" :: DataSourceType, serviceRoleArn :: Maybe (String), dynamodbConfig :: Maybe (DynamodbDataSourceConfig), lambdaConfig :: Maybe (LambdaDataSourceConfig), elasticsearchConfig :: Maybe (ElasticsearchDataSourceConfig) }
 ```
 
 ##### Instances
@@ -333,7 +333,7 @@ Constructs CreateDataSourceRequest from required parameters
 #### `newCreateDataSourceRequest'`
 
 ``` purescript
-newCreateDataSourceRequest' :: String -> ResourceName -> DataSourceType -> ({ apiId :: String, name :: ResourceName, description :: NullOrUndefined (String), "type" :: DataSourceType, serviceRoleArn :: NullOrUndefined (String), dynamodbConfig :: NullOrUndefined (DynamodbDataSourceConfig), lambdaConfig :: NullOrUndefined (LambdaDataSourceConfig), elasticsearchConfig :: NullOrUndefined (ElasticsearchDataSourceConfig) } -> { apiId :: String, name :: ResourceName, description :: NullOrUndefined (String), "type" :: DataSourceType, serviceRoleArn :: NullOrUndefined (String), dynamodbConfig :: NullOrUndefined (DynamodbDataSourceConfig), lambdaConfig :: NullOrUndefined (LambdaDataSourceConfig), elasticsearchConfig :: NullOrUndefined (ElasticsearchDataSourceConfig) }) -> CreateDataSourceRequest
+newCreateDataSourceRequest' :: String -> ResourceName -> DataSourceType -> ({ apiId :: String, name :: ResourceName, description :: Maybe (String), "type" :: DataSourceType, serviceRoleArn :: Maybe (String), dynamodbConfig :: Maybe (DynamodbDataSourceConfig), lambdaConfig :: Maybe (LambdaDataSourceConfig), elasticsearchConfig :: Maybe (ElasticsearchDataSourceConfig) } -> { apiId :: String, name :: ResourceName, description :: Maybe (String), "type" :: DataSourceType, serviceRoleArn :: Maybe (String), dynamodbConfig :: Maybe (DynamodbDataSourceConfig), lambdaConfig :: Maybe (LambdaDataSourceConfig), elasticsearchConfig :: Maybe (ElasticsearchDataSourceConfig) }) -> CreateDataSourceRequest
 ```
 
 Constructs CreateDataSourceRequest's fields from required parameters
@@ -342,7 +342,7 @@ Constructs CreateDataSourceRequest's fields from required parameters
 
 ``` purescript
 newtype CreateDataSourceResponse
-  = CreateDataSourceResponse { dataSource :: NullOrUndefined (DataSource) }
+  = CreateDataSourceResponse { dataSource :: Maybe (DataSource) }
 ```
 
 ##### Instances
@@ -365,7 +365,7 @@ Constructs CreateDataSourceResponse from required parameters
 #### `newCreateDataSourceResponse'`
 
 ``` purescript
-newCreateDataSourceResponse' :: ({ dataSource :: NullOrUndefined (DataSource) } -> { dataSource :: NullOrUndefined (DataSource) }) -> CreateDataSourceResponse
+newCreateDataSourceResponse' :: ({ dataSource :: Maybe (DataSource) } -> { dataSource :: Maybe (DataSource) }) -> CreateDataSourceResponse
 ```
 
 Constructs CreateDataSourceResponse's fields from required parameters
@@ -374,7 +374,7 @@ Constructs CreateDataSourceResponse's fields from required parameters
 
 ``` purescript
 newtype CreateGraphqlApiRequest
-  = CreateGraphqlApiRequest { name :: String, authenticationType :: AuthenticationType, userPoolConfig :: NullOrUndefined (UserPoolConfig) }
+  = CreateGraphqlApiRequest { name :: String, authenticationType :: AuthenticationType, userPoolConfig :: Maybe (UserPoolConfig) }
 ```
 
 ##### Instances
@@ -397,7 +397,7 @@ Constructs CreateGraphqlApiRequest from required parameters
 #### `newCreateGraphqlApiRequest'`
 
 ``` purescript
-newCreateGraphqlApiRequest' :: AuthenticationType -> String -> ({ name :: String, authenticationType :: AuthenticationType, userPoolConfig :: NullOrUndefined (UserPoolConfig) } -> { name :: String, authenticationType :: AuthenticationType, userPoolConfig :: NullOrUndefined (UserPoolConfig) }) -> CreateGraphqlApiRequest
+newCreateGraphqlApiRequest' :: AuthenticationType -> String -> ({ name :: String, authenticationType :: AuthenticationType, userPoolConfig :: Maybe (UserPoolConfig) } -> { name :: String, authenticationType :: AuthenticationType, userPoolConfig :: Maybe (UserPoolConfig) }) -> CreateGraphqlApiRequest
 ```
 
 Constructs CreateGraphqlApiRequest's fields from required parameters
@@ -406,7 +406,7 @@ Constructs CreateGraphqlApiRequest's fields from required parameters
 
 ``` purescript
 newtype CreateGraphqlApiResponse
-  = CreateGraphqlApiResponse { graphqlApi :: NullOrUndefined (GraphqlApi) }
+  = CreateGraphqlApiResponse { graphqlApi :: Maybe (GraphqlApi) }
 ```
 
 ##### Instances
@@ -429,7 +429,7 @@ Constructs CreateGraphqlApiResponse from required parameters
 #### `newCreateGraphqlApiResponse'`
 
 ``` purescript
-newCreateGraphqlApiResponse' :: ({ graphqlApi :: NullOrUndefined (GraphqlApi) } -> { graphqlApi :: NullOrUndefined (GraphqlApi) }) -> CreateGraphqlApiResponse
+newCreateGraphqlApiResponse' :: ({ graphqlApi :: Maybe (GraphqlApi) } -> { graphqlApi :: Maybe (GraphqlApi) }) -> CreateGraphqlApiResponse
 ```
 
 Constructs CreateGraphqlApiResponse's fields from required parameters
@@ -438,7 +438,7 @@ Constructs CreateGraphqlApiResponse's fields from required parameters
 
 ``` purescript
 newtype CreateResolverRequest
-  = CreateResolverRequest { apiId :: String, typeName :: ResourceName, fieldName :: ResourceName, dataSourceName :: ResourceName, requestMappingTemplate :: MappingTemplate, responseMappingTemplate :: NullOrUndefined (MappingTemplate) }
+  = CreateResolverRequest { apiId :: String, typeName :: ResourceName, fieldName :: ResourceName, dataSourceName :: ResourceName, requestMappingTemplate :: MappingTemplate, responseMappingTemplate :: Maybe (MappingTemplate) }
 ```
 
 ##### Instances
@@ -461,7 +461,7 @@ Constructs CreateResolverRequest from required parameters
 #### `newCreateResolverRequest'`
 
 ``` purescript
-newCreateResolverRequest' :: String -> ResourceName -> ResourceName -> MappingTemplate -> ResourceName -> ({ apiId :: String, typeName :: ResourceName, fieldName :: ResourceName, dataSourceName :: ResourceName, requestMappingTemplate :: MappingTemplate, responseMappingTemplate :: NullOrUndefined (MappingTemplate) } -> { apiId :: String, typeName :: ResourceName, fieldName :: ResourceName, dataSourceName :: ResourceName, requestMappingTemplate :: MappingTemplate, responseMappingTemplate :: NullOrUndefined (MappingTemplate) }) -> CreateResolverRequest
+newCreateResolverRequest' :: String -> ResourceName -> ResourceName -> MappingTemplate -> ResourceName -> ({ apiId :: String, typeName :: ResourceName, fieldName :: ResourceName, dataSourceName :: ResourceName, requestMappingTemplate :: MappingTemplate, responseMappingTemplate :: Maybe (MappingTemplate) } -> { apiId :: String, typeName :: ResourceName, fieldName :: ResourceName, dataSourceName :: ResourceName, requestMappingTemplate :: MappingTemplate, responseMappingTemplate :: Maybe (MappingTemplate) }) -> CreateResolverRequest
 ```
 
 Constructs CreateResolverRequest's fields from required parameters
@@ -470,7 +470,7 @@ Constructs CreateResolverRequest's fields from required parameters
 
 ``` purescript
 newtype CreateResolverResponse
-  = CreateResolverResponse { resolver :: NullOrUndefined (Resolver) }
+  = CreateResolverResponse { resolver :: Maybe (Resolver) }
 ```
 
 ##### Instances
@@ -493,7 +493,7 @@ Constructs CreateResolverResponse from required parameters
 #### `newCreateResolverResponse'`
 
 ``` purescript
-newCreateResolverResponse' :: ({ resolver :: NullOrUndefined (Resolver) } -> { resolver :: NullOrUndefined (Resolver) }) -> CreateResolverResponse
+newCreateResolverResponse' :: ({ resolver :: Maybe (Resolver) } -> { resolver :: Maybe (Resolver) }) -> CreateResolverResponse
 ```
 
 Constructs CreateResolverResponse's fields from required parameters
@@ -534,7 +534,7 @@ Constructs CreateTypeRequest's fields from required parameters
 
 ``` purescript
 newtype CreateTypeResponse
-  = CreateTypeResponse { "type" :: NullOrUndefined (Type) }
+  = CreateTypeResponse { "type" :: Maybe (Type) }
 ```
 
 ##### Instances
@@ -557,7 +557,7 @@ Constructs CreateTypeResponse from required parameters
 #### `newCreateTypeResponse'`
 
 ``` purescript
-newCreateTypeResponse' :: ({ "type" :: NullOrUndefined (Type) } -> { "type" :: NullOrUndefined (Type) }) -> CreateTypeResponse
+newCreateTypeResponse' :: ({ "type" :: Maybe (Type) } -> { "type" :: Maybe (Type) }) -> CreateTypeResponse
 ```
 
 Constructs CreateTypeResponse's fields from required parameters
@@ -566,7 +566,7 @@ Constructs CreateTypeResponse's fields from required parameters
 
 ``` purescript
 newtype DataSource
-  = DataSource { dataSourceArn :: NullOrUndefined (String), name :: NullOrUndefined (ResourceName), description :: NullOrUndefined (String), "type" :: NullOrUndefined (DataSourceType), serviceRoleArn :: NullOrUndefined (String), dynamodbConfig :: NullOrUndefined (DynamodbDataSourceConfig), lambdaConfig :: NullOrUndefined (LambdaDataSourceConfig), elasticsearchConfig :: NullOrUndefined (ElasticsearchDataSourceConfig) }
+  = DataSource { dataSourceArn :: Maybe (String), name :: Maybe (ResourceName), description :: Maybe (String), "type" :: Maybe (DataSourceType), serviceRoleArn :: Maybe (String), dynamodbConfig :: Maybe (DynamodbDataSourceConfig), lambdaConfig :: Maybe (LambdaDataSourceConfig), elasticsearchConfig :: Maybe (ElasticsearchDataSourceConfig) }
 ```
 
 <p>Describes a data source.</p>
@@ -591,7 +591,7 @@ Constructs DataSource from required parameters
 #### `newDataSource'`
 
 ``` purescript
-newDataSource' :: ({ dataSourceArn :: NullOrUndefined (String), name :: NullOrUndefined (ResourceName), description :: NullOrUndefined (String), "type" :: NullOrUndefined (DataSourceType), serviceRoleArn :: NullOrUndefined (String), dynamodbConfig :: NullOrUndefined (DynamodbDataSourceConfig), lambdaConfig :: NullOrUndefined (LambdaDataSourceConfig), elasticsearchConfig :: NullOrUndefined (ElasticsearchDataSourceConfig) } -> { dataSourceArn :: NullOrUndefined (String), name :: NullOrUndefined (ResourceName), description :: NullOrUndefined (String), "type" :: NullOrUndefined (DataSourceType), serviceRoleArn :: NullOrUndefined (String), dynamodbConfig :: NullOrUndefined (DynamodbDataSourceConfig), lambdaConfig :: NullOrUndefined (LambdaDataSourceConfig), elasticsearchConfig :: NullOrUndefined (ElasticsearchDataSourceConfig) }) -> DataSource
+newDataSource' :: ({ dataSourceArn :: Maybe (String), name :: Maybe (ResourceName), description :: Maybe (String), "type" :: Maybe (DataSourceType), serviceRoleArn :: Maybe (String), dynamodbConfig :: Maybe (DynamodbDataSourceConfig), lambdaConfig :: Maybe (LambdaDataSourceConfig), elasticsearchConfig :: Maybe (ElasticsearchDataSourceConfig) } -> { dataSourceArn :: Maybe (String), name :: Maybe (ResourceName), description :: Maybe (String), "type" :: Maybe (DataSourceType), serviceRoleArn :: Maybe (String), dynamodbConfig :: Maybe (DynamodbDataSourceConfig), lambdaConfig :: Maybe (LambdaDataSourceConfig), elasticsearchConfig :: Maybe (ElasticsearchDataSourceConfig) }) -> DataSource
 ```
 
 Constructs DataSource's fields from required parameters
@@ -888,7 +888,7 @@ Encode DeleteTypeResponse
 
 ``` purescript
 newtype DynamodbDataSourceConfig
-  = DynamodbDataSourceConfig { tableName :: String, awsRegion :: String, useCallerCredentials :: NullOrUndefined (Boolean) }
+  = DynamodbDataSourceConfig { tableName :: String, awsRegion :: String, useCallerCredentials :: Maybe (Boolean) }
 ```
 
 <p>Describes a DynamoDB data source configuration.</p>
@@ -913,7 +913,7 @@ Constructs DynamodbDataSourceConfig from required parameters
 #### `newDynamodbDataSourceConfig'`
 
 ``` purescript
-newDynamodbDataSourceConfig' :: String -> String -> ({ tableName :: String, awsRegion :: String, useCallerCredentials :: NullOrUndefined (Boolean) } -> { tableName :: String, awsRegion :: String, useCallerCredentials :: NullOrUndefined (Boolean) }) -> DynamodbDataSourceConfig
+newDynamodbDataSourceConfig' :: String -> String -> ({ tableName :: String, awsRegion :: String, useCallerCredentials :: Maybe (Boolean) } -> { tableName :: String, awsRegion :: String, useCallerCredentials :: Maybe (Boolean) }) -> DynamodbDataSourceConfig
 ```
 
 Constructs DynamodbDataSourceConfig's fields from required parameters
@@ -1004,7 +1004,7 @@ Constructs GetDataSourceRequest's fields from required parameters
 
 ``` purescript
 newtype GetDataSourceResponse
-  = GetDataSourceResponse { dataSource :: NullOrUndefined (DataSource) }
+  = GetDataSourceResponse { dataSource :: Maybe (DataSource) }
 ```
 
 ##### Instances
@@ -1027,7 +1027,7 @@ Constructs GetDataSourceResponse from required parameters
 #### `newGetDataSourceResponse'`
 
 ``` purescript
-newGetDataSourceResponse' :: ({ dataSource :: NullOrUndefined (DataSource) } -> { dataSource :: NullOrUndefined (DataSource) }) -> GetDataSourceResponse
+newGetDataSourceResponse' :: ({ dataSource :: Maybe (DataSource) } -> { dataSource :: Maybe (DataSource) }) -> GetDataSourceResponse
 ```
 
 Constructs GetDataSourceResponse's fields from required parameters
@@ -1068,7 +1068,7 @@ Constructs GetGraphqlApiRequest's fields from required parameters
 
 ``` purescript
 newtype GetGraphqlApiResponse
-  = GetGraphqlApiResponse { graphqlApi :: NullOrUndefined (GraphqlApi) }
+  = GetGraphqlApiResponse { graphqlApi :: Maybe (GraphqlApi) }
 ```
 
 ##### Instances
@@ -1091,7 +1091,7 @@ Constructs GetGraphqlApiResponse from required parameters
 #### `newGetGraphqlApiResponse'`
 
 ``` purescript
-newGetGraphqlApiResponse' :: ({ graphqlApi :: NullOrUndefined (GraphqlApi) } -> { graphqlApi :: NullOrUndefined (GraphqlApi) }) -> GetGraphqlApiResponse
+newGetGraphqlApiResponse' :: ({ graphqlApi :: Maybe (GraphqlApi) } -> { graphqlApi :: Maybe (GraphqlApi) }) -> GetGraphqlApiResponse
 ```
 
 Constructs GetGraphqlApiResponse's fields from required parameters
@@ -1132,7 +1132,7 @@ Constructs GetIntrospectionSchemaRequest's fields from required parameters
 
 ``` purescript
 newtype GetIntrospectionSchemaResponse
-  = GetIntrospectionSchemaResponse { schema :: NullOrUndefined (String) }
+  = GetIntrospectionSchemaResponse { schema :: Maybe (String) }
 ```
 
 ##### Instances
@@ -1155,7 +1155,7 @@ Constructs GetIntrospectionSchemaResponse from required parameters
 #### `newGetIntrospectionSchemaResponse'`
 
 ``` purescript
-newGetIntrospectionSchemaResponse' :: ({ schema :: NullOrUndefined (String) } -> { schema :: NullOrUndefined (String) }) -> GetIntrospectionSchemaResponse
+newGetIntrospectionSchemaResponse' :: ({ schema :: Maybe (String) } -> { schema :: Maybe (String) }) -> GetIntrospectionSchemaResponse
 ```
 
 Constructs GetIntrospectionSchemaResponse's fields from required parameters
@@ -1196,7 +1196,7 @@ Constructs GetResolverRequest's fields from required parameters
 
 ``` purescript
 newtype GetResolverResponse
-  = GetResolverResponse { resolver :: NullOrUndefined (Resolver) }
+  = GetResolverResponse { resolver :: Maybe (Resolver) }
 ```
 
 ##### Instances
@@ -1219,7 +1219,7 @@ Constructs GetResolverResponse from required parameters
 #### `newGetResolverResponse'`
 
 ``` purescript
-newGetResolverResponse' :: ({ resolver :: NullOrUndefined (Resolver) } -> { resolver :: NullOrUndefined (Resolver) }) -> GetResolverResponse
+newGetResolverResponse' :: ({ resolver :: Maybe (Resolver) } -> { resolver :: Maybe (Resolver) }) -> GetResolverResponse
 ```
 
 Constructs GetResolverResponse's fields from required parameters
@@ -1260,7 +1260,7 @@ Constructs GetSchemaCreationStatusRequest's fields from required parameters
 
 ``` purescript
 newtype GetSchemaCreationStatusResponse
-  = GetSchemaCreationStatusResponse { status :: NullOrUndefined (SchemaStatus), details :: NullOrUndefined (String) }
+  = GetSchemaCreationStatusResponse { status :: Maybe (SchemaStatus), details :: Maybe (String) }
 ```
 
 ##### Instances
@@ -1283,7 +1283,7 @@ Constructs GetSchemaCreationStatusResponse from required parameters
 #### `newGetSchemaCreationStatusResponse'`
 
 ``` purescript
-newGetSchemaCreationStatusResponse' :: ({ status :: NullOrUndefined (SchemaStatus), details :: NullOrUndefined (String) } -> { status :: NullOrUndefined (SchemaStatus), details :: NullOrUndefined (String) }) -> GetSchemaCreationStatusResponse
+newGetSchemaCreationStatusResponse' :: ({ status :: Maybe (SchemaStatus), details :: Maybe (String) } -> { status :: Maybe (SchemaStatus), details :: Maybe (String) }) -> GetSchemaCreationStatusResponse
 ```
 
 Constructs GetSchemaCreationStatusResponse's fields from required parameters
@@ -1324,7 +1324,7 @@ Constructs GetTypeRequest's fields from required parameters
 
 ``` purescript
 newtype GetTypeResponse
-  = GetTypeResponse { "type" :: NullOrUndefined (Type) }
+  = GetTypeResponse { "type" :: Maybe (Type) }
 ```
 
 ##### Instances
@@ -1347,7 +1347,7 @@ Constructs GetTypeResponse from required parameters
 #### `newGetTypeResponse'`
 
 ``` purescript
-newGetTypeResponse' :: ({ "type" :: NullOrUndefined (Type) } -> { "type" :: NullOrUndefined (Type) }) -> GetTypeResponse
+newGetTypeResponse' :: ({ "type" :: Maybe (Type) } -> { "type" :: Maybe (Type) }) -> GetTypeResponse
 ```
 
 Constructs GetTypeResponse's fields from required parameters
@@ -1356,7 +1356,7 @@ Constructs GetTypeResponse's fields from required parameters
 
 ``` purescript
 newtype GraphQLSchemaException
-  = GraphQLSchemaException { message :: NullOrUndefined (ErrorMessage) }
+  = GraphQLSchemaException { message :: Maybe (ErrorMessage) }
 ```
 
 <p>The GraphQL schema is not valid.</p>
@@ -1381,7 +1381,7 @@ Constructs GraphQLSchemaException from required parameters
 #### `newGraphQLSchemaException'`
 
 ``` purescript
-newGraphQLSchemaException' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> GraphQLSchemaException
+newGraphQLSchemaException' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> GraphQLSchemaException
 ```
 
 Constructs GraphQLSchemaException's fields from required parameters
@@ -1390,7 +1390,7 @@ Constructs GraphQLSchemaException's fields from required parameters
 
 ``` purescript
 newtype GraphqlApi
-  = GraphqlApi { name :: NullOrUndefined (ResourceName), apiId :: NullOrUndefined (String), authenticationType :: NullOrUndefined (AuthenticationType), userPoolConfig :: NullOrUndefined (UserPoolConfig), arn :: NullOrUndefined (String), uris :: NullOrUndefined (MapOfStringToString) }
+  = GraphqlApi { name :: Maybe (ResourceName), apiId :: Maybe (String), authenticationType :: Maybe (AuthenticationType), userPoolConfig :: Maybe (UserPoolConfig), arn :: Maybe (String), uris :: Maybe (MapOfStringToString) }
 ```
 
 <p>Describes a GraphQL API.</p>
@@ -1415,7 +1415,7 @@ Constructs GraphqlApi from required parameters
 #### `newGraphqlApi'`
 
 ``` purescript
-newGraphqlApi' :: ({ name :: NullOrUndefined (ResourceName), apiId :: NullOrUndefined (String), authenticationType :: NullOrUndefined (AuthenticationType), userPoolConfig :: NullOrUndefined (UserPoolConfig), arn :: NullOrUndefined (String), uris :: NullOrUndefined (MapOfStringToString) } -> { name :: NullOrUndefined (ResourceName), apiId :: NullOrUndefined (String), authenticationType :: NullOrUndefined (AuthenticationType), userPoolConfig :: NullOrUndefined (UserPoolConfig), arn :: NullOrUndefined (String), uris :: NullOrUndefined (MapOfStringToString) }) -> GraphqlApi
+newGraphqlApi' :: ({ name :: Maybe (ResourceName), apiId :: Maybe (String), authenticationType :: Maybe (AuthenticationType), userPoolConfig :: Maybe (UserPoolConfig), arn :: Maybe (String), uris :: Maybe (MapOfStringToString) } -> { name :: Maybe (ResourceName), apiId :: Maybe (String), authenticationType :: Maybe (AuthenticationType), userPoolConfig :: Maybe (UserPoolConfig), arn :: Maybe (String), uris :: Maybe (MapOfStringToString) }) -> GraphqlApi
 ```
 
 Constructs GraphqlApi's fields from required parameters
@@ -1440,7 +1440,7 @@ Encode GraphqlApis
 
 ``` purescript
 newtype InternalFailureException
-  = InternalFailureException { message :: NullOrUndefined (String) }
+  = InternalFailureException { message :: Maybe (String) }
 ```
 
 <p>An internal AWS AppSync error occurred. Try your request again.</p>
@@ -1465,7 +1465,7 @@ Constructs InternalFailureException from required parameters
 #### `newInternalFailureException'`
 
 ``` purescript
-newInternalFailureException' :: ({ message :: NullOrUndefined (String) } -> { message :: NullOrUndefined (String) }) -> InternalFailureException
+newInternalFailureException' :: ({ message :: Maybe (String) } -> { message :: Maybe (String) }) -> InternalFailureException
 ```
 
 Constructs InternalFailureException's fields from required parameters
@@ -1508,7 +1508,7 @@ Constructs LambdaDataSourceConfig's fields from required parameters
 
 ``` purescript
 newtype LimitExceededException
-  = LimitExceededException { message :: NullOrUndefined (String) }
+  = LimitExceededException { message :: Maybe (String) }
 ```
 
 <p>The request exceeded a limit. Try your request again.</p>
@@ -1533,7 +1533,7 @@ Constructs LimitExceededException from required parameters
 #### `newLimitExceededException'`
 
 ``` purescript
-newLimitExceededException' :: ({ message :: NullOrUndefined (String) } -> { message :: NullOrUndefined (String) }) -> LimitExceededException
+newLimitExceededException' :: ({ message :: Maybe (String) } -> { message :: Maybe (String) }) -> LimitExceededException
 ```
 
 Constructs LimitExceededException's fields from required parameters
@@ -1542,7 +1542,7 @@ Constructs LimitExceededException's fields from required parameters
 
 ``` purescript
 newtype ListApiKeysRequest
-  = ListApiKeysRequest { apiId :: String, nextToken :: NullOrUndefined (PaginationToken), maxResults :: NullOrUndefined (MaxResults) }
+  = ListApiKeysRequest { apiId :: String, nextToken :: Maybe (PaginationToken), maxResults :: Maybe (MaxResults) }
 ```
 
 ##### Instances
@@ -1565,7 +1565,7 @@ Constructs ListApiKeysRequest from required parameters
 #### `newListApiKeysRequest'`
 
 ``` purescript
-newListApiKeysRequest' :: String -> ({ apiId :: String, nextToken :: NullOrUndefined (PaginationToken), maxResults :: NullOrUndefined (MaxResults) } -> { apiId :: String, nextToken :: NullOrUndefined (PaginationToken), maxResults :: NullOrUndefined (MaxResults) }) -> ListApiKeysRequest
+newListApiKeysRequest' :: String -> ({ apiId :: String, nextToken :: Maybe (PaginationToken), maxResults :: Maybe (MaxResults) } -> { apiId :: String, nextToken :: Maybe (PaginationToken), maxResults :: Maybe (MaxResults) }) -> ListApiKeysRequest
 ```
 
 Constructs ListApiKeysRequest's fields from required parameters
@@ -1574,7 +1574,7 @@ Constructs ListApiKeysRequest's fields from required parameters
 
 ``` purescript
 newtype ListApiKeysResponse
-  = ListApiKeysResponse { apiKeys :: NullOrUndefined (ApiKeys), nextToken :: NullOrUndefined (PaginationToken) }
+  = ListApiKeysResponse { apiKeys :: Maybe (ApiKeys), nextToken :: Maybe (PaginationToken) }
 ```
 
 ##### Instances
@@ -1597,7 +1597,7 @@ Constructs ListApiKeysResponse from required parameters
 #### `newListApiKeysResponse'`
 
 ``` purescript
-newListApiKeysResponse' :: ({ apiKeys :: NullOrUndefined (ApiKeys), nextToken :: NullOrUndefined (PaginationToken) } -> { apiKeys :: NullOrUndefined (ApiKeys), nextToken :: NullOrUndefined (PaginationToken) }) -> ListApiKeysResponse
+newListApiKeysResponse' :: ({ apiKeys :: Maybe (ApiKeys), nextToken :: Maybe (PaginationToken) } -> { apiKeys :: Maybe (ApiKeys), nextToken :: Maybe (PaginationToken) }) -> ListApiKeysResponse
 ```
 
 Constructs ListApiKeysResponse's fields from required parameters
@@ -1606,7 +1606,7 @@ Constructs ListApiKeysResponse's fields from required parameters
 
 ``` purescript
 newtype ListDataSourcesRequest
-  = ListDataSourcesRequest { apiId :: String, nextToken :: NullOrUndefined (PaginationToken), maxResults :: NullOrUndefined (MaxResults) }
+  = ListDataSourcesRequest { apiId :: String, nextToken :: Maybe (PaginationToken), maxResults :: Maybe (MaxResults) }
 ```
 
 ##### Instances
@@ -1629,7 +1629,7 @@ Constructs ListDataSourcesRequest from required parameters
 #### `newListDataSourcesRequest'`
 
 ``` purescript
-newListDataSourcesRequest' :: String -> ({ apiId :: String, nextToken :: NullOrUndefined (PaginationToken), maxResults :: NullOrUndefined (MaxResults) } -> { apiId :: String, nextToken :: NullOrUndefined (PaginationToken), maxResults :: NullOrUndefined (MaxResults) }) -> ListDataSourcesRequest
+newListDataSourcesRequest' :: String -> ({ apiId :: String, nextToken :: Maybe (PaginationToken), maxResults :: Maybe (MaxResults) } -> { apiId :: String, nextToken :: Maybe (PaginationToken), maxResults :: Maybe (MaxResults) }) -> ListDataSourcesRequest
 ```
 
 Constructs ListDataSourcesRequest's fields from required parameters
@@ -1638,7 +1638,7 @@ Constructs ListDataSourcesRequest's fields from required parameters
 
 ``` purescript
 newtype ListDataSourcesResponse
-  = ListDataSourcesResponse { dataSources :: NullOrUndefined (DataSources), nextToken :: NullOrUndefined (PaginationToken) }
+  = ListDataSourcesResponse { dataSources :: Maybe (DataSources), nextToken :: Maybe (PaginationToken) }
 ```
 
 ##### Instances
@@ -1661,7 +1661,7 @@ Constructs ListDataSourcesResponse from required parameters
 #### `newListDataSourcesResponse'`
 
 ``` purescript
-newListDataSourcesResponse' :: ({ dataSources :: NullOrUndefined (DataSources), nextToken :: NullOrUndefined (PaginationToken) } -> { dataSources :: NullOrUndefined (DataSources), nextToken :: NullOrUndefined (PaginationToken) }) -> ListDataSourcesResponse
+newListDataSourcesResponse' :: ({ dataSources :: Maybe (DataSources), nextToken :: Maybe (PaginationToken) } -> { dataSources :: Maybe (DataSources), nextToken :: Maybe (PaginationToken) }) -> ListDataSourcesResponse
 ```
 
 Constructs ListDataSourcesResponse's fields from required parameters
@@ -1670,7 +1670,7 @@ Constructs ListDataSourcesResponse's fields from required parameters
 
 ``` purescript
 newtype ListGraphqlApisRequest
-  = ListGraphqlApisRequest { nextToken :: NullOrUndefined (PaginationToken), maxResults :: NullOrUndefined (MaxResults) }
+  = ListGraphqlApisRequest { nextToken :: Maybe (PaginationToken), maxResults :: Maybe (MaxResults) }
 ```
 
 ##### Instances
@@ -1693,7 +1693,7 @@ Constructs ListGraphqlApisRequest from required parameters
 #### `newListGraphqlApisRequest'`
 
 ``` purescript
-newListGraphqlApisRequest' :: ({ nextToken :: NullOrUndefined (PaginationToken), maxResults :: NullOrUndefined (MaxResults) } -> { nextToken :: NullOrUndefined (PaginationToken), maxResults :: NullOrUndefined (MaxResults) }) -> ListGraphqlApisRequest
+newListGraphqlApisRequest' :: ({ nextToken :: Maybe (PaginationToken), maxResults :: Maybe (MaxResults) } -> { nextToken :: Maybe (PaginationToken), maxResults :: Maybe (MaxResults) }) -> ListGraphqlApisRequest
 ```
 
 Constructs ListGraphqlApisRequest's fields from required parameters
@@ -1702,7 +1702,7 @@ Constructs ListGraphqlApisRequest's fields from required parameters
 
 ``` purescript
 newtype ListGraphqlApisResponse
-  = ListGraphqlApisResponse { graphqlApis :: NullOrUndefined (GraphqlApis), nextToken :: NullOrUndefined (PaginationToken) }
+  = ListGraphqlApisResponse { graphqlApis :: Maybe (GraphqlApis), nextToken :: Maybe (PaginationToken) }
 ```
 
 ##### Instances
@@ -1725,7 +1725,7 @@ Constructs ListGraphqlApisResponse from required parameters
 #### `newListGraphqlApisResponse'`
 
 ``` purescript
-newListGraphqlApisResponse' :: ({ graphqlApis :: NullOrUndefined (GraphqlApis), nextToken :: NullOrUndefined (PaginationToken) } -> { graphqlApis :: NullOrUndefined (GraphqlApis), nextToken :: NullOrUndefined (PaginationToken) }) -> ListGraphqlApisResponse
+newListGraphqlApisResponse' :: ({ graphqlApis :: Maybe (GraphqlApis), nextToken :: Maybe (PaginationToken) } -> { graphqlApis :: Maybe (GraphqlApis), nextToken :: Maybe (PaginationToken) }) -> ListGraphqlApisResponse
 ```
 
 Constructs ListGraphqlApisResponse's fields from required parameters
@@ -1734,7 +1734,7 @@ Constructs ListGraphqlApisResponse's fields from required parameters
 
 ``` purescript
 newtype ListResolversRequest
-  = ListResolversRequest { apiId :: String, typeName :: String, nextToken :: NullOrUndefined (PaginationToken), maxResults :: NullOrUndefined (MaxResults) }
+  = ListResolversRequest { apiId :: String, typeName :: String, nextToken :: Maybe (PaginationToken), maxResults :: Maybe (MaxResults) }
 ```
 
 ##### Instances
@@ -1757,7 +1757,7 @@ Constructs ListResolversRequest from required parameters
 #### `newListResolversRequest'`
 
 ``` purescript
-newListResolversRequest' :: String -> String -> ({ apiId :: String, typeName :: String, nextToken :: NullOrUndefined (PaginationToken), maxResults :: NullOrUndefined (MaxResults) } -> { apiId :: String, typeName :: String, nextToken :: NullOrUndefined (PaginationToken), maxResults :: NullOrUndefined (MaxResults) }) -> ListResolversRequest
+newListResolversRequest' :: String -> String -> ({ apiId :: String, typeName :: String, nextToken :: Maybe (PaginationToken), maxResults :: Maybe (MaxResults) } -> { apiId :: String, typeName :: String, nextToken :: Maybe (PaginationToken), maxResults :: Maybe (MaxResults) }) -> ListResolversRequest
 ```
 
 Constructs ListResolversRequest's fields from required parameters
@@ -1766,7 +1766,7 @@ Constructs ListResolversRequest's fields from required parameters
 
 ``` purescript
 newtype ListResolversResponse
-  = ListResolversResponse { resolvers :: NullOrUndefined (Resolvers), nextToken :: NullOrUndefined (PaginationToken) }
+  = ListResolversResponse { resolvers :: Maybe (Resolvers), nextToken :: Maybe (PaginationToken) }
 ```
 
 ##### Instances
@@ -1789,7 +1789,7 @@ Constructs ListResolversResponse from required parameters
 #### `newListResolversResponse'`
 
 ``` purescript
-newListResolversResponse' :: ({ resolvers :: NullOrUndefined (Resolvers), nextToken :: NullOrUndefined (PaginationToken) } -> { resolvers :: NullOrUndefined (Resolvers), nextToken :: NullOrUndefined (PaginationToken) }) -> ListResolversResponse
+newListResolversResponse' :: ({ resolvers :: Maybe (Resolvers), nextToken :: Maybe (PaginationToken) } -> { resolvers :: Maybe (Resolvers), nextToken :: Maybe (PaginationToken) }) -> ListResolversResponse
 ```
 
 Constructs ListResolversResponse's fields from required parameters
@@ -1798,7 +1798,7 @@ Constructs ListResolversResponse's fields from required parameters
 
 ``` purescript
 newtype ListTypesRequest
-  = ListTypesRequest { apiId :: String, format :: TypeDefinitionFormat, nextToken :: NullOrUndefined (PaginationToken), maxResults :: NullOrUndefined (MaxResults) }
+  = ListTypesRequest { apiId :: String, format :: TypeDefinitionFormat, nextToken :: Maybe (PaginationToken), maxResults :: Maybe (MaxResults) }
 ```
 
 ##### Instances
@@ -1821,7 +1821,7 @@ Constructs ListTypesRequest from required parameters
 #### `newListTypesRequest'`
 
 ``` purescript
-newListTypesRequest' :: String -> TypeDefinitionFormat -> ({ apiId :: String, format :: TypeDefinitionFormat, nextToken :: NullOrUndefined (PaginationToken), maxResults :: NullOrUndefined (MaxResults) } -> { apiId :: String, format :: TypeDefinitionFormat, nextToken :: NullOrUndefined (PaginationToken), maxResults :: NullOrUndefined (MaxResults) }) -> ListTypesRequest
+newListTypesRequest' :: String -> TypeDefinitionFormat -> ({ apiId :: String, format :: TypeDefinitionFormat, nextToken :: Maybe (PaginationToken), maxResults :: Maybe (MaxResults) } -> { apiId :: String, format :: TypeDefinitionFormat, nextToken :: Maybe (PaginationToken), maxResults :: Maybe (MaxResults) }) -> ListTypesRequest
 ```
 
 Constructs ListTypesRequest's fields from required parameters
@@ -1830,7 +1830,7 @@ Constructs ListTypesRequest's fields from required parameters
 
 ``` purescript
 newtype ListTypesResponse
-  = ListTypesResponse { types :: NullOrUndefined (TypeList), nextToken :: NullOrUndefined (PaginationToken) }
+  = ListTypesResponse { types :: Maybe (TypeList), nextToken :: Maybe (PaginationToken) }
 ```
 
 ##### Instances
@@ -1853,7 +1853,7 @@ Constructs ListTypesResponse from required parameters
 #### `newListTypesResponse'`
 
 ``` purescript
-newListTypesResponse' :: ({ types :: NullOrUndefined (TypeList), nextToken :: NullOrUndefined (PaginationToken) } -> { types :: NullOrUndefined (TypeList), nextToken :: NullOrUndefined (PaginationToken) }) -> ListTypesResponse
+newListTypesResponse' :: ({ types :: Maybe (TypeList), nextToken :: Maybe (PaginationToken) } -> { types :: Maybe (TypeList), nextToken :: Maybe (PaginationToken) }) -> ListTypesResponse
 ```
 
 Constructs ListTypesResponse's fields from required parameters
@@ -1910,7 +1910,7 @@ Encode MaxResults
 
 ``` purescript
 newtype NotFoundException
-  = NotFoundException { message :: NullOrUndefined (String) }
+  = NotFoundException { message :: Maybe (String) }
 ```
 
 <p>The resource specified in the request was not found. Check the resource and try again.</p>
@@ -1935,7 +1935,7 @@ Constructs NotFoundException from required parameters
 #### `newNotFoundException'`
 
 ``` purescript
-newNotFoundException' :: ({ message :: NullOrUndefined (String) } -> { message :: NullOrUndefined (String) }) -> NotFoundException
+newNotFoundException' :: ({ message :: Maybe (String) } -> { message :: Maybe (String) }) -> NotFoundException
 ```
 
 Constructs NotFoundException's fields from required parameters
@@ -1976,7 +1976,7 @@ Encode PaginationToken
 
 ``` purescript
 newtype Resolver
-  = Resolver { typeName :: NullOrUndefined (ResourceName), fieldName :: NullOrUndefined (ResourceName), dataSourceName :: NullOrUndefined (ResourceName), resolverArn :: NullOrUndefined (String), requestMappingTemplate :: NullOrUndefined (MappingTemplate), responseMappingTemplate :: NullOrUndefined (MappingTemplate) }
+  = Resolver { typeName :: Maybe (ResourceName), fieldName :: Maybe (ResourceName), dataSourceName :: Maybe (ResourceName), resolverArn :: Maybe (String), requestMappingTemplate :: Maybe (MappingTemplate), responseMappingTemplate :: Maybe (MappingTemplate) }
 ```
 
 <p>Describes a resolver.</p>
@@ -2001,7 +2001,7 @@ Constructs Resolver from required parameters
 #### `newResolver'`
 
 ``` purescript
-newResolver' :: ({ typeName :: NullOrUndefined (ResourceName), fieldName :: NullOrUndefined (ResourceName), dataSourceName :: NullOrUndefined (ResourceName), resolverArn :: NullOrUndefined (String), requestMappingTemplate :: NullOrUndefined (MappingTemplate), responseMappingTemplate :: NullOrUndefined (MappingTemplate) } -> { typeName :: NullOrUndefined (ResourceName), fieldName :: NullOrUndefined (ResourceName), dataSourceName :: NullOrUndefined (ResourceName), resolverArn :: NullOrUndefined (String), requestMappingTemplate :: NullOrUndefined (MappingTemplate), responseMappingTemplate :: NullOrUndefined (MappingTemplate) }) -> Resolver
+newResolver' :: ({ typeName :: Maybe (ResourceName), fieldName :: Maybe (ResourceName), dataSourceName :: Maybe (ResourceName), resolverArn :: Maybe (String), requestMappingTemplate :: Maybe (MappingTemplate), responseMappingTemplate :: Maybe (MappingTemplate) } -> { typeName :: Maybe (ResourceName), fieldName :: Maybe (ResourceName), dataSourceName :: Maybe (ResourceName), resolverArn :: Maybe (String), requestMappingTemplate :: Maybe (MappingTemplate), responseMappingTemplate :: Maybe (MappingTemplate) }) -> Resolver
 ```
 
 Constructs Resolver's fields from required parameters
@@ -2090,7 +2090,7 @@ Constructs StartSchemaCreationRequest's fields from required parameters
 
 ``` purescript
 newtype StartSchemaCreationResponse
-  = StartSchemaCreationResponse { status :: NullOrUndefined (SchemaStatus) }
+  = StartSchemaCreationResponse { status :: Maybe (SchemaStatus) }
 ```
 
 ##### Instances
@@ -2113,7 +2113,7 @@ Constructs StartSchemaCreationResponse from required parameters
 #### `newStartSchemaCreationResponse'`
 
 ``` purescript
-newStartSchemaCreationResponse' :: ({ status :: NullOrUndefined (SchemaStatus) } -> { status :: NullOrUndefined (SchemaStatus) }) -> StartSchemaCreationResponse
+newStartSchemaCreationResponse' :: ({ status :: Maybe (SchemaStatus) } -> { status :: Maybe (SchemaStatus) }) -> StartSchemaCreationResponse
 ```
 
 Constructs StartSchemaCreationResponse's fields from required parameters
@@ -2122,7 +2122,7 @@ Constructs StartSchemaCreationResponse's fields from required parameters
 
 ``` purescript
 newtype Type
-  = Type { name :: NullOrUndefined (ResourceName), description :: NullOrUndefined (String), arn :: NullOrUndefined (String), definition :: NullOrUndefined (String), format :: NullOrUndefined (TypeDefinitionFormat) }
+  = Type { name :: Maybe (ResourceName), description :: Maybe (String), arn :: Maybe (String), definition :: Maybe (String), format :: Maybe (TypeDefinitionFormat) }
 ```
 
 <p>Describes a type.</p>
@@ -2147,7 +2147,7 @@ Constructs Type from required parameters
 #### `newType'`
 
 ``` purescript
-newType' :: ({ name :: NullOrUndefined (ResourceName), description :: NullOrUndefined (String), arn :: NullOrUndefined (String), definition :: NullOrUndefined (String), format :: NullOrUndefined (TypeDefinitionFormat) } -> { name :: NullOrUndefined (ResourceName), description :: NullOrUndefined (String), arn :: NullOrUndefined (String), definition :: NullOrUndefined (String), format :: NullOrUndefined (TypeDefinitionFormat) }) -> Type
+newType' :: ({ name :: Maybe (ResourceName), description :: Maybe (String), arn :: Maybe (String), definition :: Maybe (String), format :: Maybe (TypeDefinitionFormat) } -> { name :: Maybe (ResourceName), description :: Maybe (String), arn :: Maybe (String), definition :: Maybe (String), format :: Maybe (TypeDefinitionFormat) }) -> Type
 ```
 
 Constructs Type's fields from required parameters
@@ -2188,7 +2188,7 @@ Encode TypeList
 
 ``` purescript
 newtype UnauthorizedException
-  = UnauthorizedException { message :: NullOrUndefined (String) }
+  = UnauthorizedException { message :: Maybe (String) }
 ```
 
 <p>You are not authorized to perform this operation.</p>
@@ -2213,7 +2213,7 @@ Constructs UnauthorizedException from required parameters
 #### `newUnauthorizedException'`
 
 ``` purescript
-newUnauthorizedException' :: ({ message :: NullOrUndefined (String) } -> { message :: NullOrUndefined (String) }) -> UnauthorizedException
+newUnauthorizedException' :: ({ message :: Maybe (String) } -> { message :: Maybe (String) }) -> UnauthorizedException
 ```
 
 Constructs UnauthorizedException's fields from required parameters
@@ -2222,7 +2222,7 @@ Constructs UnauthorizedException's fields from required parameters
 
 ``` purescript
 newtype UpdateApiKeyRequest
-  = UpdateApiKeyRequest { apiId :: String, id :: String, description :: NullOrUndefined (String), expires :: NullOrUndefined (Number) }
+  = UpdateApiKeyRequest { apiId :: String, id :: String, description :: Maybe (String), expires :: Maybe (Number) }
 ```
 
 ##### Instances
@@ -2245,7 +2245,7 @@ Constructs UpdateApiKeyRequest from required parameters
 #### `newUpdateApiKeyRequest'`
 
 ``` purescript
-newUpdateApiKeyRequest' :: String -> String -> ({ apiId :: String, id :: String, description :: NullOrUndefined (String), expires :: NullOrUndefined (Number) } -> { apiId :: String, id :: String, description :: NullOrUndefined (String), expires :: NullOrUndefined (Number) }) -> UpdateApiKeyRequest
+newUpdateApiKeyRequest' :: String -> String -> ({ apiId :: String, id :: String, description :: Maybe (String), expires :: Maybe (Number) } -> { apiId :: String, id :: String, description :: Maybe (String), expires :: Maybe (Number) }) -> UpdateApiKeyRequest
 ```
 
 Constructs UpdateApiKeyRequest's fields from required parameters
@@ -2254,7 +2254,7 @@ Constructs UpdateApiKeyRequest's fields from required parameters
 
 ``` purescript
 newtype UpdateApiKeyResponse
-  = UpdateApiKeyResponse { apiKey :: NullOrUndefined (ApiKey) }
+  = UpdateApiKeyResponse { apiKey :: Maybe (ApiKey) }
 ```
 
 ##### Instances
@@ -2277,7 +2277,7 @@ Constructs UpdateApiKeyResponse from required parameters
 #### `newUpdateApiKeyResponse'`
 
 ``` purescript
-newUpdateApiKeyResponse' :: ({ apiKey :: NullOrUndefined (ApiKey) } -> { apiKey :: NullOrUndefined (ApiKey) }) -> UpdateApiKeyResponse
+newUpdateApiKeyResponse' :: ({ apiKey :: Maybe (ApiKey) } -> { apiKey :: Maybe (ApiKey) }) -> UpdateApiKeyResponse
 ```
 
 Constructs UpdateApiKeyResponse's fields from required parameters
@@ -2286,7 +2286,7 @@ Constructs UpdateApiKeyResponse's fields from required parameters
 
 ``` purescript
 newtype UpdateDataSourceRequest
-  = UpdateDataSourceRequest { apiId :: String, name :: ResourceName, description :: NullOrUndefined (String), "type" :: DataSourceType, serviceRoleArn :: NullOrUndefined (String), dynamodbConfig :: NullOrUndefined (DynamodbDataSourceConfig), lambdaConfig :: NullOrUndefined (LambdaDataSourceConfig), elasticsearchConfig :: NullOrUndefined (ElasticsearchDataSourceConfig) }
+  = UpdateDataSourceRequest { apiId :: String, name :: ResourceName, description :: Maybe (String), "type" :: DataSourceType, serviceRoleArn :: Maybe (String), dynamodbConfig :: Maybe (DynamodbDataSourceConfig), lambdaConfig :: Maybe (LambdaDataSourceConfig), elasticsearchConfig :: Maybe (ElasticsearchDataSourceConfig) }
 ```
 
 ##### Instances
@@ -2309,7 +2309,7 @@ Constructs UpdateDataSourceRequest from required parameters
 #### `newUpdateDataSourceRequest'`
 
 ``` purescript
-newUpdateDataSourceRequest' :: String -> ResourceName -> DataSourceType -> ({ apiId :: String, name :: ResourceName, description :: NullOrUndefined (String), "type" :: DataSourceType, serviceRoleArn :: NullOrUndefined (String), dynamodbConfig :: NullOrUndefined (DynamodbDataSourceConfig), lambdaConfig :: NullOrUndefined (LambdaDataSourceConfig), elasticsearchConfig :: NullOrUndefined (ElasticsearchDataSourceConfig) } -> { apiId :: String, name :: ResourceName, description :: NullOrUndefined (String), "type" :: DataSourceType, serviceRoleArn :: NullOrUndefined (String), dynamodbConfig :: NullOrUndefined (DynamodbDataSourceConfig), lambdaConfig :: NullOrUndefined (LambdaDataSourceConfig), elasticsearchConfig :: NullOrUndefined (ElasticsearchDataSourceConfig) }) -> UpdateDataSourceRequest
+newUpdateDataSourceRequest' :: String -> ResourceName -> DataSourceType -> ({ apiId :: String, name :: ResourceName, description :: Maybe (String), "type" :: DataSourceType, serviceRoleArn :: Maybe (String), dynamodbConfig :: Maybe (DynamodbDataSourceConfig), lambdaConfig :: Maybe (LambdaDataSourceConfig), elasticsearchConfig :: Maybe (ElasticsearchDataSourceConfig) } -> { apiId :: String, name :: ResourceName, description :: Maybe (String), "type" :: DataSourceType, serviceRoleArn :: Maybe (String), dynamodbConfig :: Maybe (DynamodbDataSourceConfig), lambdaConfig :: Maybe (LambdaDataSourceConfig), elasticsearchConfig :: Maybe (ElasticsearchDataSourceConfig) }) -> UpdateDataSourceRequest
 ```
 
 Constructs UpdateDataSourceRequest's fields from required parameters
@@ -2318,7 +2318,7 @@ Constructs UpdateDataSourceRequest's fields from required parameters
 
 ``` purescript
 newtype UpdateDataSourceResponse
-  = UpdateDataSourceResponse { dataSource :: NullOrUndefined (DataSource) }
+  = UpdateDataSourceResponse { dataSource :: Maybe (DataSource) }
 ```
 
 ##### Instances
@@ -2341,7 +2341,7 @@ Constructs UpdateDataSourceResponse from required parameters
 #### `newUpdateDataSourceResponse'`
 
 ``` purescript
-newUpdateDataSourceResponse' :: ({ dataSource :: NullOrUndefined (DataSource) } -> { dataSource :: NullOrUndefined (DataSource) }) -> UpdateDataSourceResponse
+newUpdateDataSourceResponse' :: ({ dataSource :: Maybe (DataSource) } -> { dataSource :: Maybe (DataSource) }) -> UpdateDataSourceResponse
 ```
 
 Constructs UpdateDataSourceResponse's fields from required parameters
@@ -2350,7 +2350,7 @@ Constructs UpdateDataSourceResponse's fields from required parameters
 
 ``` purescript
 newtype UpdateGraphqlApiRequest
-  = UpdateGraphqlApiRequest { apiId :: String, name :: String, authenticationType :: NullOrUndefined (AuthenticationType), userPoolConfig :: NullOrUndefined (UserPoolConfig) }
+  = UpdateGraphqlApiRequest { apiId :: String, name :: String, authenticationType :: Maybe (AuthenticationType), userPoolConfig :: Maybe (UserPoolConfig) }
 ```
 
 ##### Instances
@@ -2373,7 +2373,7 @@ Constructs UpdateGraphqlApiRequest from required parameters
 #### `newUpdateGraphqlApiRequest'`
 
 ``` purescript
-newUpdateGraphqlApiRequest' :: String -> String -> ({ apiId :: String, name :: String, authenticationType :: NullOrUndefined (AuthenticationType), userPoolConfig :: NullOrUndefined (UserPoolConfig) } -> { apiId :: String, name :: String, authenticationType :: NullOrUndefined (AuthenticationType), userPoolConfig :: NullOrUndefined (UserPoolConfig) }) -> UpdateGraphqlApiRequest
+newUpdateGraphqlApiRequest' :: String -> String -> ({ apiId :: String, name :: String, authenticationType :: Maybe (AuthenticationType), userPoolConfig :: Maybe (UserPoolConfig) } -> { apiId :: String, name :: String, authenticationType :: Maybe (AuthenticationType), userPoolConfig :: Maybe (UserPoolConfig) }) -> UpdateGraphqlApiRequest
 ```
 
 Constructs UpdateGraphqlApiRequest's fields from required parameters
@@ -2382,7 +2382,7 @@ Constructs UpdateGraphqlApiRequest's fields from required parameters
 
 ``` purescript
 newtype UpdateGraphqlApiResponse
-  = UpdateGraphqlApiResponse { graphqlApi :: NullOrUndefined (GraphqlApi) }
+  = UpdateGraphqlApiResponse { graphqlApi :: Maybe (GraphqlApi) }
 ```
 
 ##### Instances
@@ -2405,7 +2405,7 @@ Constructs UpdateGraphqlApiResponse from required parameters
 #### `newUpdateGraphqlApiResponse'`
 
 ``` purescript
-newUpdateGraphqlApiResponse' :: ({ graphqlApi :: NullOrUndefined (GraphqlApi) } -> { graphqlApi :: NullOrUndefined (GraphqlApi) }) -> UpdateGraphqlApiResponse
+newUpdateGraphqlApiResponse' :: ({ graphqlApi :: Maybe (GraphqlApi) } -> { graphqlApi :: Maybe (GraphqlApi) }) -> UpdateGraphqlApiResponse
 ```
 
 Constructs UpdateGraphqlApiResponse's fields from required parameters
@@ -2414,7 +2414,7 @@ Constructs UpdateGraphqlApiResponse's fields from required parameters
 
 ``` purescript
 newtype UpdateResolverRequest
-  = UpdateResolverRequest { apiId :: String, typeName :: ResourceName, fieldName :: ResourceName, dataSourceName :: ResourceName, requestMappingTemplate :: MappingTemplate, responseMappingTemplate :: NullOrUndefined (MappingTemplate) }
+  = UpdateResolverRequest { apiId :: String, typeName :: ResourceName, fieldName :: ResourceName, dataSourceName :: ResourceName, requestMappingTemplate :: MappingTemplate, responseMappingTemplate :: Maybe (MappingTemplate) }
 ```
 
 ##### Instances
@@ -2437,7 +2437,7 @@ Constructs UpdateResolverRequest from required parameters
 #### `newUpdateResolverRequest'`
 
 ``` purescript
-newUpdateResolverRequest' :: String -> ResourceName -> ResourceName -> MappingTemplate -> ResourceName -> ({ apiId :: String, typeName :: ResourceName, fieldName :: ResourceName, dataSourceName :: ResourceName, requestMappingTemplate :: MappingTemplate, responseMappingTemplate :: NullOrUndefined (MappingTemplate) } -> { apiId :: String, typeName :: ResourceName, fieldName :: ResourceName, dataSourceName :: ResourceName, requestMappingTemplate :: MappingTemplate, responseMappingTemplate :: NullOrUndefined (MappingTemplate) }) -> UpdateResolverRequest
+newUpdateResolverRequest' :: String -> ResourceName -> ResourceName -> MappingTemplate -> ResourceName -> ({ apiId :: String, typeName :: ResourceName, fieldName :: ResourceName, dataSourceName :: ResourceName, requestMappingTemplate :: MappingTemplate, responseMappingTemplate :: Maybe (MappingTemplate) } -> { apiId :: String, typeName :: ResourceName, fieldName :: ResourceName, dataSourceName :: ResourceName, requestMappingTemplate :: MappingTemplate, responseMappingTemplate :: Maybe (MappingTemplate) }) -> UpdateResolverRequest
 ```
 
 Constructs UpdateResolverRequest's fields from required parameters
@@ -2446,7 +2446,7 @@ Constructs UpdateResolverRequest's fields from required parameters
 
 ``` purescript
 newtype UpdateResolverResponse
-  = UpdateResolverResponse { resolver :: NullOrUndefined (Resolver) }
+  = UpdateResolverResponse { resolver :: Maybe (Resolver) }
 ```
 
 ##### Instances
@@ -2469,7 +2469,7 @@ Constructs UpdateResolverResponse from required parameters
 #### `newUpdateResolverResponse'`
 
 ``` purescript
-newUpdateResolverResponse' :: ({ resolver :: NullOrUndefined (Resolver) } -> { resolver :: NullOrUndefined (Resolver) }) -> UpdateResolverResponse
+newUpdateResolverResponse' :: ({ resolver :: Maybe (Resolver) } -> { resolver :: Maybe (Resolver) }) -> UpdateResolverResponse
 ```
 
 Constructs UpdateResolverResponse's fields from required parameters
@@ -2478,7 +2478,7 @@ Constructs UpdateResolverResponse's fields from required parameters
 
 ``` purescript
 newtype UpdateTypeRequest
-  = UpdateTypeRequest { apiId :: String, typeName :: ResourceName, definition :: NullOrUndefined (String), format :: TypeDefinitionFormat }
+  = UpdateTypeRequest { apiId :: String, typeName :: ResourceName, definition :: Maybe (String), format :: TypeDefinitionFormat }
 ```
 
 ##### Instances
@@ -2501,7 +2501,7 @@ Constructs UpdateTypeRequest from required parameters
 #### `newUpdateTypeRequest'`
 
 ``` purescript
-newUpdateTypeRequest' :: String -> TypeDefinitionFormat -> ResourceName -> ({ apiId :: String, typeName :: ResourceName, definition :: NullOrUndefined (String), format :: TypeDefinitionFormat } -> { apiId :: String, typeName :: ResourceName, definition :: NullOrUndefined (String), format :: TypeDefinitionFormat }) -> UpdateTypeRequest
+newUpdateTypeRequest' :: String -> TypeDefinitionFormat -> ResourceName -> ({ apiId :: String, typeName :: ResourceName, definition :: Maybe (String), format :: TypeDefinitionFormat } -> { apiId :: String, typeName :: ResourceName, definition :: Maybe (String), format :: TypeDefinitionFormat }) -> UpdateTypeRequest
 ```
 
 Constructs UpdateTypeRequest's fields from required parameters
@@ -2510,7 +2510,7 @@ Constructs UpdateTypeRequest's fields from required parameters
 
 ``` purescript
 newtype UpdateTypeResponse
-  = UpdateTypeResponse { "type" :: NullOrUndefined (Type) }
+  = UpdateTypeResponse { "type" :: Maybe (Type) }
 ```
 
 ##### Instances
@@ -2533,7 +2533,7 @@ Constructs UpdateTypeResponse from required parameters
 #### `newUpdateTypeResponse'`
 
 ``` purescript
-newUpdateTypeResponse' :: ({ "type" :: NullOrUndefined (Type) } -> { "type" :: NullOrUndefined (Type) }) -> UpdateTypeResponse
+newUpdateTypeResponse' :: ({ "type" :: Maybe (Type) } -> { "type" :: Maybe (Type) }) -> UpdateTypeResponse
 ```
 
 Constructs UpdateTypeResponse's fields from required parameters
@@ -2542,7 +2542,7 @@ Constructs UpdateTypeResponse's fields from required parameters
 
 ``` purescript
 newtype UserPoolConfig
-  = UserPoolConfig { userPoolId :: String, awsRegion :: String, defaultAction :: DefaultAction, appIdClientRegex :: NullOrUndefined (String) }
+  = UserPoolConfig { userPoolId :: String, awsRegion :: String, defaultAction :: DefaultAction, appIdClientRegex :: Maybe (String) }
 ```
 
 <p>Describes an Amazon Cognito User Pool configuration.</p>
@@ -2567,7 +2567,7 @@ Constructs UserPoolConfig from required parameters
 #### `newUserPoolConfig'`
 
 ``` purescript
-newUserPoolConfig' :: String -> DefaultAction -> String -> ({ userPoolId :: String, awsRegion :: String, defaultAction :: DefaultAction, appIdClientRegex :: NullOrUndefined (String) } -> { userPoolId :: String, awsRegion :: String, defaultAction :: DefaultAction, appIdClientRegex :: NullOrUndefined (String) }) -> UserPoolConfig
+newUserPoolConfig' :: String -> DefaultAction -> String -> ({ userPoolId :: String, awsRegion :: String, defaultAction :: DefaultAction, appIdClientRegex :: Maybe (String) } -> { userPoolId :: String, awsRegion :: String, defaultAction :: DefaultAction, appIdClientRegex :: Maybe (String) }) -> UserPoolConfig
 ```
 
 Constructs UserPoolConfig's fields from required parameters

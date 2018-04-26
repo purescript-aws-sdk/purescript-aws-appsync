@@ -5,7 +5,6 @@ import Prelude
 import Data.Foreign.Class (class Decode, class Encode)
 import Data.Foreign.Generic (defaultOptions, genericDecode, genericEncode)
 import Data.Foreign.Generic.Types (Options)
-import Data.Foreign.NullOrUndefined (NullOrUndefined(..))
 import Data.Generic.Rep (class Generic)
 import Data.Generic.Rep.Show (genericShow)
 import Data.Maybe (Maybe(..))
@@ -20,9 +19,9 @@ options = defaultOptions { unwrapSingleConstructors = true }
 
 -- | <p>Describes an API key.</p>
 newtype ApiKey = ApiKey 
-  { "id" :: NullOrUndefined (String)
-  , "description" :: NullOrUndefined (String)
-  , "expires" :: NullOrUndefined (Number)
+  { "id" :: Maybe (String)
+  , "description" :: Maybe (String)
+  , "expires" :: Maybe (Number)
   }
 derive instance newtypeApiKey :: Newtype ApiKey _
 derive instance repGenericApiKey :: Generic ApiKey _
@@ -32,18 +31,18 @@ instance encodeApiKey :: Encode ApiKey where encode = genericEncode options
 
 -- | Constructs ApiKey from required parameters
 newApiKey :: ApiKey
-newApiKey  = ApiKey { "description": (NullOrUndefined Nothing), "expires": (NullOrUndefined Nothing), "id": (NullOrUndefined Nothing) }
+newApiKey  = ApiKey { "description": Nothing, "expires": Nothing, "id": Nothing }
 
 -- | Constructs ApiKey's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newApiKey' :: ( { "id" :: NullOrUndefined (String) , "description" :: NullOrUndefined (String) , "expires" :: NullOrUndefined (Number) } -> {"id" :: NullOrUndefined (String) , "description" :: NullOrUndefined (String) , "expires" :: NullOrUndefined (Number) } ) -> ApiKey
-newApiKey'  customize = (ApiKey <<< customize) { "description": (NullOrUndefined Nothing), "expires": (NullOrUndefined Nothing), "id": (NullOrUndefined Nothing) }
+newApiKey' :: ( { "id" :: Maybe (String) , "description" :: Maybe (String) , "expires" :: Maybe (Number) } -> {"id" :: Maybe (String) , "description" :: Maybe (String) , "expires" :: Maybe (Number) } ) -> ApiKey
+newApiKey'  customize = (ApiKey <<< customize) { "description": Nothing, "expires": Nothing, "id": Nothing }
 
 
 
 -- | <p>The API key exceeded a limit. Try your request again.</p>
 newtype ApiKeyLimitExceededException = ApiKeyLimitExceededException 
-  { "message" :: NullOrUndefined (String)
+  { "message" :: Maybe (String)
   }
 derive instance newtypeApiKeyLimitExceededException :: Newtype ApiKeyLimitExceededException _
 derive instance repGenericApiKeyLimitExceededException :: Generic ApiKeyLimitExceededException _
@@ -53,18 +52,18 @@ instance encodeApiKeyLimitExceededException :: Encode ApiKeyLimitExceededExcepti
 
 -- | Constructs ApiKeyLimitExceededException from required parameters
 newApiKeyLimitExceededException :: ApiKeyLimitExceededException
-newApiKeyLimitExceededException  = ApiKeyLimitExceededException { "message": (NullOrUndefined Nothing) }
+newApiKeyLimitExceededException  = ApiKeyLimitExceededException { "message": Nothing }
 
 -- | Constructs ApiKeyLimitExceededException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newApiKeyLimitExceededException' :: ( { "message" :: NullOrUndefined (String) } -> {"message" :: NullOrUndefined (String) } ) -> ApiKeyLimitExceededException
-newApiKeyLimitExceededException'  customize = (ApiKeyLimitExceededException <<< customize) { "message": (NullOrUndefined Nothing) }
+newApiKeyLimitExceededException' :: ( { "message" :: Maybe (String) } -> {"message" :: Maybe (String) } ) -> ApiKeyLimitExceededException
+newApiKeyLimitExceededException'  customize = (ApiKeyLimitExceededException <<< customize) { "message": Nothing }
 
 
 
 -- | <p>The API key expiration must be set to a value between 1 and 365 days.</p>
 newtype ApiKeyValidityOutOfBoundsException = ApiKeyValidityOutOfBoundsException 
-  { "message" :: NullOrUndefined (String)
+  { "message" :: Maybe (String)
   }
 derive instance newtypeApiKeyValidityOutOfBoundsException :: Newtype ApiKeyValidityOutOfBoundsException _
 derive instance repGenericApiKeyValidityOutOfBoundsException :: Generic ApiKeyValidityOutOfBoundsException _
@@ -74,12 +73,12 @@ instance encodeApiKeyValidityOutOfBoundsException :: Encode ApiKeyValidityOutOfB
 
 -- | Constructs ApiKeyValidityOutOfBoundsException from required parameters
 newApiKeyValidityOutOfBoundsException :: ApiKeyValidityOutOfBoundsException
-newApiKeyValidityOutOfBoundsException  = ApiKeyValidityOutOfBoundsException { "message": (NullOrUndefined Nothing) }
+newApiKeyValidityOutOfBoundsException  = ApiKeyValidityOutOfBoundsException { "message": Nothing }
 
 -- | Constructs ApiKeyValidityOutOfBoundsException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newApiKeyValidityOutOfBoundsException' :: ( { "message" :: NullOrUndefined (String) } -> {"message" :: NullOrUndefined (String) } ) -> ApiKeyValidityOutOfBoundsException
-newApiKeyValidityOutOfBoundsException'  customize = (ApiKeyValidityOutOfBoundsException <<< customize) { "message": (NullOrUndefined Nothing) }
+newApiKeyValidityOutOfBoundsException' :: ( { "message" :: Maybe (String) } -> {"message" :: Maybe (String) } ) -> ApiKeyValidityOutOfBoundsException
+newApiKeyValidityOutOfBoundsException'  customize = (ApiKeyValidityOutOfBoundsException <<< customize) { "message": Nothing }
 
 
 
@@ -94,7 +93,7 @@ instance encodeApiKeys :: Encode ApiKeys where encode = genericEncode options
 
 -- | <p>The GraphQL API exceeded a limit. Try your request again.</p>
 newtype ApiLimitExceededException = ApiLimitExceededException 
-  { "message" :: NullOrUndefined (String)
+  { "message" :: Maybe (String)
   }
 derive instance newtypeApiLimitExceededException :: Newtype ApiLimitExceededException _
 derive instance repGenericApiLimitExceededException :: Generic ApiLimitExceededException _
@@ -104,12 +103,12 @@ instance encodeApiLimitExceededException :: Encode ApiLimitExceededException whe
 
 -- | Constructs ApiLimitExceededException from required parameters
 newApiLimitExceededException :: ApiLimitExceededException
-newApiLimitExceededException  = ApiLimitExceededException { "message": (NullOrUndefined Nothing) }
+newApiLimitExceededException  = ApiLimitExceededException { "message": Nothing }
 
 -- | Constructs ApiLimitExceededException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newApiLimitExceededException' :: ( { "message" :: NullOrUndefined (String) } -> {"message" :: NullOrUndefined (String) } ) -> ApiLimitExceededException
-newApiLimitExceededException'  customize = (ApiLimitExceededException <<< customize) { "message": (NullOrUndefined Nothing) }
+newApiLimitExceededException' :: ( { "message" :: Maybe (String) } -> {"message" :: Maybe (String) } ) -> ApiLimitExceededException
+newApiLimitExceededException'  customize = (ApiLimitExceededException <<< customize) { "message": Nothing }
 
 
 
@@ -124,7 +123,7 @@ instance encodeAuthenticationType :: Encode AuthenticationType where encode = ge
 
 -- | <p>The request is not well formed. For example, a value is invalid or a required field is missing. Check the field values, and try again. </p>
 newtype BadRequestException = BadRequestException 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeBadRequestException :: Newtype BadRequestException _
 derive instance repGenericBadRequestException :: Generic BadRequestException _
@@ -134,18 +133,18 @@ instance encodeBadRequestException :: Encode BadRequestException where encode = 
 
 -- | Constructs BadRequestException from required parameters
 newBadRequestException :: BadRequestException
-newBadRequestException  = BadRequestException { "message": (NullOrUndefined Nothing) }
+newBadRequestException  = BadRequestException { "message": Nothing }
 
 -- | Constructs BadRequestException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newBadRequestException' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> BadRequestException
-newBadRequestException'  customize = (BadRequestException <<< customize) { "message": (NullOrUndefined Nothing) }
+newBadRequestException' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> BadRequestException
+newBadRequestException'  customize = (BadRequestException <<< customize) { "message": Nothing }
 
 
 
 -- | <p>Another modification is being made. That modification must complete before you can make your change. </p>
 newtype ConcurrentModificationException = ConcurrentModificationException 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeConcurrentModificationException :: Newtype ConcurrentModificationException _
 derive instance repGenericConcurrentModificationException :: Generic ConcurrentModificationException _
@@ -155,19 +154,19 @@ instance encodeConcurrentModificationException :: Encode ConcurrentModificationE
 
 -- | Constructs ConcurrentModificationException from required parameters
 newConcurrentModificationException :: ConcurrentModificationException
-newConcurrentModificationException  = ConcurrentModificationException { "message": (NullOrUndefined Nothing) }
+newConcurrentModificationException  = ConcurrentModificationException { "message": Nothing }
 
 -- | Constructs ConcurrentModificationException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newConcurrentModificationException' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> ConcurrentModificationException
-newConcurrentModificationException'  customize = (ConcurrentModificationException <<< customize) { "message": (NullOrUndefined Nothing) }
+newConcurrentModificationException' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> ConcurrentModificationException
+newConcurrentModificationException'  customize = (ConcurrentModificationException <<< customize) { "message": Nothing }
 
 
 
 newtype CreateApiKeyRequest = CreateApiKeyRequest 
   { "apiId" :: (String)
-  , "description" :: NullOrUndefined (String)
-  , "expires" :: NullOrUndefined (Number)
+  , "description" :: Maybe (String)
+  , "expires" :: Maybe (Number)
   }
 derive instance newtypeCreateApiKeyRequest :: Newtype CreateApiKeyRequest _
 derive instance repGenericCreateApiKeyRequest :: Generic CreateApiKeyRequest _
@@ -177,17 +176,17 @@ instance encodeCreateApiKeyRequest :: Encode CreateApiKeyRequest where encode = 
 
 -- | Constructs CreateApiKeyRequest from required parameters
 newCreateApiKeyRequest :: String -> CreateApiKeyRequest
-newCreateApiKeyRequest _apiId = CreateApiKeyRequest { "apiId": _apiId, "description": (NullOrUndefined Nothing), "expires": (NullOrUndefined Nothing) }
+newCreateApiKeyRequest _apiId = CreateApiKeyRequest { "apiId": _apiId, "description": Nothing, "expires": Nothing }
 
 -- | Constructs CreateApiKeyRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateApiKeyRequest' :: String -> ( { "apiId" :: (String) , "description" :: NullOrUndefined (String) , "expires" :: NullOrUndefined (Number) } -> {"apiId" :: (String) , "description" :: NullOrUndefined (String) , "expires" :: NullOrUndefined (Number) } ) -> CreateApiKeyRequest
-newCreateApiKeyRequest' _apiId customize = (CreateApiKeyRequest <<< customize) { "apiId": _apiId, "description": (NullOrUndefined Nothing), "expires": (NullOrUndefined Nothing) }
+newCreateApiKeyRequest' :: String -> ( { "apiId" :: (String) , "description" :: Maybe (String) , "expires" :: Maybe (Number) } -> {"apiId" :: (String) , "description" :: Maybe (String) , "expires" :: Maybe (Number) } ) -> CreateApiKeyRequest
+newCreateApiKeyRequest' _apiId customize = (CreateApiKeyRequest <<< customize) { "apiId": _apiId, "description": Nothing, "expires": Nothing }
 
 
 
 newtype CreateApiKeyResponse = CreateApiKeyResponse 
-  { "apiKey" :: NullOrUndefined (ApiKey)
+  { "apiKey" :: Maybe (ApiKey)
   }
 derive instance newtypeCreateApiKeyResponse :: Newtype CreateApiKeyResponse _
 derive instance repGenericCreateApiKeyResponse :: Generic CreateApiKeyResponse _
@@ -197,24 +196,24 @@ instance encodeCreateApiKeyResponse :: Encode CreateApiKeyResponse where encode 
 
 -- | Constructs CreateApiKeyResponse from required parameters
 newCreateApiKeyResponse :: CreateApiKeyResponse
-newCreateApiKeyResponse  = CreateApiKeyResponse { "apiKey": (NullOrUndefined Nothing) }
+newCreateApiKeyResponse  = CreateApiKeyResponse { "apiKey": Nothing }
 
 -- | Constructs CreateApiKeyResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateApiKeyResponse' :: ( { "apiKey" :: NullOrUndefined (ApiKey) } -> {"apiKey" :: NullOrUndefined (ApiKey) } ) -> CreateApiKeyResponse
-newCreateApiKeyResponse'  customize = (CreateApiKeyResponse <<< customize) { "apiKey": (NullOrUndefined Nothing) }
+newCreateApiKeyResponse' :: ( { "apiKey" :: Maybe (ApiKey) } -> {"apiKey" :: Maybe (ApiKey) } ) -> CreateApiKeyResponse
+newCreateApiKeyResponse'  customize = (CreateApiKeyResponse <<< customize) { "apiKey": Nothing }
 
 
 
 newtype CreateDataSourceRequest = CreateDataSourceRequest 
   { "apiId" :: (String)
   , "name" :: (ResourceName)
-  , "description" :: NullOrUndefined (String)
+  , "description" :: Maybe (String)
   , "type" :: (DataSourceType)
-  , "serviceRoleArn" :: NullOrUndefined (String)
-  , "dynamodbConfig" :: NullOrUndefined (DynamodbDataSourceConfig)
-  , "lambdaConfig" :: NullOrUndefined (LambdaDataSourceConfig)
-  , "elasticsearchConfig" :: NullOrUndefined (ElasticsearchDataSourceConfig)
+  , "serviceRoleArn" :: Maybe (String)
+  , "dynamodbConfig" :: Maybe (DynamodbDataSourceConfig)
+  , "lambdaConfig" :: Maybe (LambdaDataSourceConfig)
+  , "elasticsearchConfig" :: Maybe (ElasticsearchDataSourceConfig)
   }
 derive instance newtypeCreateDataSourceRequest :: Newtype CreateDataSourceRequest _
 derive instance repGenericCreateDataSourceRequest :: Generic CreateDataSourceRequest _
@@ -224,17 +223,17 @@ instance encodeCreateDataSourceRequest :: Encode CreateDataSourceRequest where e
 
 -- | Constructs CreateDataSourceRequest from required parameters
 newCreateDataSourceRequest :: String -> ResourceName -> DataSourceType -> CreateDataSourceRequest
-newCreateDataSourceRequest _apiId _name _type = CreateDataSourceRequest { "apiId": _apiId, "name": _name, "type": _type, "description": (NullOrUndefined Nothing), "dynamodbConfig": (NullOrUndefined Nothing), "elasticsearchConfig": (NullOrUndefined Nothing), "lambdaConfig": (NullOrUndefined Nothing), "serviceRoleArn": (NullOrUndefined Nothing) }
+newCreateDataSourceRequest _apiId _name _type = CreateDataSourceRequest { "apiId": _apiId, "name": _name, "type": _type, "description": Nothing, "dynamodbConfig": Nothing, "elasticsearchConfig": Nothing, "lambdaConfig": Nothing, "serviceRoleArn": Nothing }
 
 -- | Constructs CreateDataSourceRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateDataSourceRequest' :: String -> ResourceName -> DataSourceType -> ( { "apiId" :: (String) , "name" :: (ResourceName) , "description" :: NullOrUndefined (String) , "type" :: (DataSourceType) , "serviceRoleArn" :: NullOrUndefined (String) , "dynamodbConfig" :: NullOrUndefined (DynamodbDataSourceConfig) , "lambdaConfig" :: NullOrUndefined (LambdaDataSourceConfig) , "elasticsearchConfig" :: NullOrUndefined (ElasticsearchDataSourceConfig) } -> {"apiId" :: (String) , "name" :: (ResourceName) , "description" :: NullOrUndefined (String) , "type" :: (DataSourceType) , "serviceRoleArn" :: NullOrUndefined (String) , "dynamodbConfig" :: NullOrUndefined (DynamodbDataSourceConfig) , "lambdaConfig" :: NullOrUndefined (LambdaDataSourceConfig) , "elasticsearchConfig" :: NullOrUndefined (ElasticsearchDataSourceConfig) } ) -> CreateDataSourceRequest
-newCreateDataSourceRequest' _apiId _name _type customize = (CreateDataSourceRequest <<< customize) { "apiId": _apiId, "name": _name, "type": _type, "description": (NullOrUndefined Nothing), "dynamodbConfig": (NullOrUndefined Nothing), "elasticsearchConfig": (NullOrUndefined Nothing), "lambdaConfig": (NullOrUndefined Nothing), "serviceRoleArn": (NullOrUndefined Nothing) }
+newCreateDataSourceRequest' :: String -> ResourceName -> DataSourceType -> ( { "apiId" :: (String) , "name" :: (ResourceName) , "description" :: Maybe (String) , "type" :: (DataSourceType) , "serviceRoleArn" :: Maybe (String) , "dynamodbConfig" :: Maybe (DynamodbDataSourceConfig) , "lambdaConfig" :: Maybe (LambdaDataSourceConfig) , "elasticsearchConfig" :: Maybe (ElasticsearchDataSourceConfig) } -> {"apiId" :: (String) , "name" :: (ResourceName) , "description" :: Maybe (String) , "type" :: (DataSourceType) , "serviceRoleArn" :: Maybe (String) , "dynamodbConfig" :: Maybe (DynamodbDataSourceConfig) , "lambdaConfig" :: Maybe (LambdaDataSourceConfig) , "elasticsearchConfig" :: Maybe (ElasticsearchDataSourceConfig) } ) -> CreateDataSourceRequest
+newCreateDataSourceRequest' _apiId _name _type customize = (CreateDataSourceRequest <<< customize) { "apiId": _apiId, "name": _name, "type": _type, "description": Nothing, "dynamodbConfig": Nothing, "elasticsearchConfig": Nothing, "lambdaConfig": Nothing, "serviceRoleArn": Nothing }
 
 
 
 newtype CreateDataSourceResponse = CreateDataSourceResponse 
-  { "dataSource" :: NullOrUndefined (DataSource)
+  { "dataSource" :: Maybe (DataSource)
   }
 derive instance newtypeCreateDataSourceResponse :: Newtype CreateDataSourceResponse _
 derive instance repGenericCreateDataSourceResponse :: Generic CreateDataSourceResponse _
@@ -244,19 +243,19 @@ instance encodeCreateDataSourceResponse :: Encode CreateDataSourceResponse where
 
 -- | Constructs CreateDataSourceResponse from required parameters
 newCreateDataSourceResponse :: CreateDataSourceResponse
-newCreateDataSourceResponse  = CreateDataSourceResponse { "dataSource": (NullOrUndefined Nothing) }
+newCreateDataSourceResponse  = CreateDataSourceResponse { "dataSource": Nothing }
 
 -- | Constructs CreateDataSourceResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateDataSourceResponse' :: ( { "dataSource" :: NullOrUndefined (DataSource) } -> {"dataSource" :: NullOrUndefined (DataSource) } ) -> CreateDataSourceResponse
-newCreateDataSourceResponse'  customize = (CreateDataSourceResponse <<< customize) { "dataSource": (NullOrUndefined Nothing) }
+newCreateDataSourceResponse' :: ( { "dataSource" :: Maybe (DataSource) } -> {"dataSource" :: Maybe (DataSource) } ) -> CreateDataSourceResponse
+newCreateDataSourceResponse'  customize = (CreateDataSourceResponse <<< customize) { "dataSource": Nothing }
 
 
 
 newtype CreateGraphqlApiRequest = CreateGraphqlApiRequest 
   { "name" :: (String)
   , "authenticationType" :: (AuthenticationType)
-  , "userPoolConfig" :: NullOrUndefined (UserPoolConfig)
+  , "userPoolConfig" :: Maybe (UserPoolConfig)
   }
 derive instance newtypeCreateGraphqlApiRequest :: Newtype CreateGraphqlApiRequest _
 derive instance repGenericCreateGraphqlApiRequest :: Generic CreateGraphqlApiRequest _
@@ -266,17 +265,17 @@ instance encodeCreateGraphqlApiRequest :: Encode CreateGraphqlApiRequest where e
 
 -- | Constructs CreateGraphqlApiRequest from required parameters
 newCreateGraphqlApiRequest :: AuthenticationType -> String -> CreateGraphqlApiRequest
-newCreateGraphqlApiRequest _authenticationType _name = CreateGraphqlApiRequest { "authenticationType": _authenticationType, "name": _name, "userPoolConfig": (NullOrUndefined Nothing) }
+newCreateGraphqlApiRequest _authenticationType _name = CreateGraphqlApiRequest { "authenticationType": _authenticationType, "name": _name, "userPoolConfig": Nothing }
 
 -- | Constructs CreateGraphqlApiRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateGraphqlApiRequest' :: AuthenticationType -> String -> ( { "name" :: (String) , "authenticationType" :: (AuthenticationType) , "userPoolConfig" :: NullOrUndefined (UserPoolConfig) } -> {"name" :: (String) , "authenticationType" :: (AuthenticationType) , "userPoolConfig" :: NullOrUndefined (UserPoolConfig) } ) -> CreateGraphqlApiRequest
-newCreateGraphqlApiRequest' _authenticationType _name customize = (CreateGraphqlApiRequest <<< customize) { "authenticationType": _authenticationType, "name": _name, "userPoolConfig": (NullOrUndefined Nothing) }
+newCreateGraphqlApiRequest' :: AuthenticationType -> String -> ( { "name" :: (String) , "authenticationType" :: (AuthenticationType) , "userPoolConfig" :: Maybe (UserPoolConfig) } -> {"name" :: (String) , "authenticationType" :: (AuthenticationType) , "userPoolConfig" :: Maybe (UserPoolConfig) } ) -> CreateGraphqlApiRequest
+newCreateGraphqlApiRequest' _authenticationType _name customize = (CreateGraphqlApiRequest <<< customize) { "authenticationType": _authenticationType, "name": _name, "userPoolConfig": Nothing }
 
 
 
 newtype CreateGraphqlApiResponse = CreateGraphqlApiResponse 
-  { "graphqlApi" :: NullOrUndefined (GraphqlApi)
+  { "graphqlApi" :: Maybe (GraphqlApi)
   }
 derive instance newtypeCreateGraphqlApiResponse :: Newtype CreateGraphqlApiResponse _
 derive instance repGenericCreateGraphqlApiResponse :: Generic CreateGraphqlApiResponse _
@@ -286,12 +285,12 @@ instance encodeCreateGraphqlApiResponse :: Encode CreateGraphqlApiResponse where
 
 -- | Constructs CreateGraphqlApiResponse from required parameters
 newCreateGraphqlApiResponse :: CreateGraphqlApiResponse
-newCreateGraphqlApiResponse  = CreateGraphqlApiResponse { "graphqlApi": (NullOrUndefined Nothing) }
+newCreateGraphqlApiResponse  = CreateGraphqlApiResponse { "graphqlApi": Nothing }
 
 -- | Constructs CreateGraphqlApiResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateGraphqlApiResponse' :: ( { "graphqlApi" :: NullOrUndefined (GraphqlApi) } -> {"graphqlApi" :: NullOrUndefined (GraphqlApi) } ) -> CreateGraphqlApiResponse
-newCreateGraphqlApiResponse'  customize = (CreateGraphqlApiResponse <<< customize) { "graphqlApi": (NullOrUndefined Nothing) }
+newCreateGraphqlApiResponse' :: ( { "graphqlApi" :: Maybe (GraphqlApi) } -> {"graphqlApi" :: Maybe (GraphqlApi) } ) -> CreateGraphqlApiResponse
+newCreateGraphqlApiResponse'  customize = (CreateGraphqlApiResponse <<< customize) { "graphqlApi": Nothing }
 
 
 
@@ -301,7 +300,7 @@ newtype CreateResolverRequest = CreateResolverRequest
   , "fieldName" :: (ResourceName)
   , "dataSourceName" :: (ResourceName)
   , "requestMappingTemplate" :: (MappingTemplate)
-  , "responseMappingTemplate" :: NullOrUndefined (MappingTemplate)
+  , "responseMappingTemplate" :: Maybe (MappingTemplate)
   }
 derive instance newtypeCreateResolverRequest :: Newtype CreateResolverRequest _
 derive instance repGenericCreateResolverRequest :: Generic CreateResolverRequest _
@@ -311,17 +310,17 @@ instance encodeCreateResolverRequest :: Encode CreateResolverRequest where encod
 
 -- | Constructs CreateResolverRequest from required parameters
 newCreateResolverRequest :: String -> ResourceName -> ResourceName -> MappingTemplate -> ResourceName -> CreateResolverRequest
-newCreateResolverRequest _apiId _dataSourceName _fieldName _requestMappingTemplate _typeName = CreateResolverRequest { "apiId": _apiId, "dataSourceName": _dataSourceName, "fieldName": _fieldName, "requestMappingTemplate": _requestMappingTemplate, "typeName": _typeName, "responseMappingTemplate": (NullOrUndefined Nothing) }
+newCreateResolverRequest _apiId _dataSourceName _fieldName _requestMappingTemplate _typeName = CreateResolverRequest { "apiId": _apiId, "dataSourceName": _dataSourceName, "fieldName": _fieldName, "requestMappingTemplate": _requestMappingTemplate, "typeName": _typeName, "responseMappingTemplate": Nothing }
 
 -- | Constructs CreateResolverRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateResolverRequest' :: String -> ResourceName -> ResourceName -> MappingTemplate -> ResourceName -> ( { "apiId" :: (String) , "typeName" :: (ResourceName) , "fieldName" :: (ResourceName) , "dataSourceName" :: (ResourceName) , "requestMappingTemplate" :: (MappingTemplate) , "responseMappingTemplate" :: NullOrUndefined (MappingTemplate) } -> {"apiId" :: (String) , "typeName" :: (ResourceName) , "fieldName" :: (ResourceName) , "dataSourceName" :: (ResourceName) , "requestMappingTemplate" :: (MappingTemplate) , "responseMappingTemplate" :: NullOrUndefined (MappingTemplate) } ) -> CreateResolverRequest
-newCreateResolverRequest' _apiId _dataSourceName _fieldName _requestMappingTemplate _typeName customize = (CreateResolverRequest <<< customize) { "apiId": _apiId, "dataSourceName": _dataSourceName, "fieldName": _fieldName, "requestMappingTemplate": _requestMappingTemplate, "typeName": _typeName, "responseMappingTemplate": (NullOrUndefined Nothing) }
+newCreateResolverRequest' :: String -> ResourceName -> ResourceName -> MappingTemplate -> ResourceName -> ( { "apiId" :: (String) , "typeName" :: (ResourceName) , "fieldName" :: (ResourceName) , "dataSourceName" :: (ResourceName) , "requestMappingTemplate" :: (MappingTemplate) , "responseMappingTemplate" :: Maybe (MappingTemplate) } -> {"apiId" :: (String) , "typeName" :: (ResourceName) , "fieldName" :: (ResourceName) , "dataSourceName" :: (ResourceName) , "requestMappingTemplate" :: (MappingTemplate) , "responseMappingTemplate" :: Maybe (MappingTemplate) } ) -> CreateResolverRequest
+newCreateResolverRequest' _apiId _dataSourceName _fieldName _requestMappingTemplate _typeName customize = (CreateResolverRequest <<< customize) { "apiId": _apiId, "dataSourceName": _dataSourceName, "fieldName": _fieldName, "requestMappingTemplate": _requestMappingTemplate, "typeName": _typeName, "responseMappingTemplate": Nothing }
 
 
 
 newtype CreateResolverResponse = CreateResolverResponse 
-  { "resolver" :: NullOrUndefined (Resolver)
+  { "resolver" :: Maybe (Resolver)
   }
 derive instance newtypeCreateResolverResponse :: Newtype CreateResolverResponse _
 derive instance repGenericCreateResolverResponse :: Generic CreateResolverResponse _
@@ -331,12 +330,12 @@ instance encodeCreateResolverResponse :: Encode CreateResolverResponse where enc
 
 -- | Constructs CreateResolverResponse from required parameters
 newCreateResolverResponse :: CreateResolverResponse
-newCreateResolverResponse  = CreateResolverResponse { "resolver": (NullOrUndefined Nothing) }
+newCreateResolverResponse  = CreateResolverResponse { "resolver": Nothing }
 
 -- | Constructs CreateResolverResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateResolverResponse' :: ( { "resolver" :: NullOrUndefined (Resolver) } -> {"resolver" :: NullOrUndefined (Resolver) } ) -> CreateResolverResponse
-newCreateResolverResponse'  customize = (CreateResolverResponse <<< customize) { "resolver": (NullOrUndefined Nothing) }
+newCreateResolverResponse' :: ( { "resolver" :: Maybe (Resolver) } -> {"resolver" :: Maybe (Resolver) } ) -> CreateResolverResponse
+newCreateResolverResponse'  customize = (CreateResolverResponse <<< customize) { "resolver": Nothing }
 
 
 
@@ -363,7 +362,7 @@ newCreateTypeRequest' _apiId _definition _format customize = (CreateTypeRequest 
 
 
 newtype CreateTypeResponse = CreateTypeResponse 
-  { "type" :: NullOrUndefined (Type)
+  { "type" :: Maybe (Type)
   }
 derive instance newtypeCreateTypeResponse :: Newtype CreateTypeResponse _
 derive instance repGenericCreateTypeResponse :: Generic CreateTypeResponse _
@@ -373,25 +372,25 @@ instance encodeCreateTypeResponse :: Encode CreateTypeResponse where encode = ge
 
 -- | Constructs CreateTypeResponse from required parameters
 newCreateTypeResponse :: CreateTypeResponse
-newCreateTypeResponse  = CreateTypeResponse { "type": (NullOrUndefined Nothing) }
+newCreateTypeResponse  = CreateTypeResponse { "type": Nothing }
 
 -- | Constructs CreateTypeResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateTypeResponse' :: ( { "type" :: NullOrUndefined (Type) } -> {"type" :: NullOrUndefined (Type) } ) -> CreateTypeResponse
-newCreateTypeResponse'  customize = (CreateTypeResponse <<< customize) { "type": (NullOrUndefined Nothing) }
+newCreateTypeResponse' :: ( { "type" :: Maybe (Type) } -> {"type" :: Maybe (Type) } ) -> CreateTypeResponse
+newCreateTypeResponse'  customize = (CreateTypeResponse <<< customize) { "type": Nothing }
 
 
 
 -- | <p>Describes a data source.</p>
 newtype DataSource = DataSource 
-  { "dataSourceArn" :: NullOrUndefined (String)
-  , "name" :: NullOrUndefined (ResourceName)
-  , "description" :: NullOrUndefined (String)
-  , "type" :: NullOrUndefined (DataSourceType)
-  , "serviceRoleArn" :: NullOrUndefined (String)
-  , "dynamodbConfig" :: NullOrUndefined (DynamodbDataSourceConfig)
-  , "lambdaConfig" :: NullOrUndefined (LambdaDataSourceConfig)
-  , "elasticsearchConfig" :: NullOrUndefined (ElasticsearchDataSourceConfig)
+  { "dataSourceArn" :: Maybe (String)
+  , "name" :: Maybe (ResourceName)
+  , "description" :: Maybe (String)
+  , "type" :: Maybe (DataSourceType)
+  , "serviceRoleArn" :: Maybe (String)
+  , "dynamodbConfig" :: Maybe (DynamodbDataSourceConfig)
+  , "lambdaConfig" :: Maybe (LambdaDataSourceConfig)
+  , "elasticsearchConfig" :: Maybe (ElasticsearchDataSourceConfig)
   }
 derive instance newtypeDataSource :: Newtype DataSource _
 derive instance repGenericDataSource :: Generic DataSource _
@@ -401,12 +400,12 @@ instance encodeDataSource :: Encode DataSource where encode = genericEncode opti
 
 -- | Constructs DataSource from required parameters
 newDataSource :: DataSource
-newDataSource  = DataSource { "dataSourceArn": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "dynamodbConfig": (NullOrUndefined Nothing), "elasticsearchConfig": (NullOrUndefined Nothing), "lambdaConfig": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing), "serviceRoleArn": (NullOrUndefined Nothing), "type": (NullOrUndefined Nothing) }
+newDataSource  = DataSource { "dataSourceArn": Nothing, "description": Nothing, "dynamodbConfig": Nothing, "elasticsearchConfig": Nothing, "lambdaConfig": Nothing, "name": Nothing, "serviceRoleArn": Nothing, "type": Nothing }
 
 -- | Constructs DataSource's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDataSource' :: ( { "dataSourceArn" :: NullOrUndefined (String) , "name" :: NullOrUndefined (ResourceName) , "description" :: NullOrUndefined (String) , "type" :: NullOrUndefined (DataSourceType) , "serviceRoleArn" :: NullOrUndefined (String) , "dynamodbConfig" :: NullOrUndefined (DynamodbDataSourceConfig) , "lambdaConfig" :: NullOrUndefined (LambdaDataSourceConfig) , "elasticsearchConfig" :: NullOrUndefined (ElasticsearchDataSourceConfig) } -> {"dataSourceArn" :: NullOrUndefined (String) , "name" :: NullOrUndefined (ResourceName) , "description" :: NullOrUndefined (String) , "type" :: NullOrUndefined (DataSourceType) , "serviceRoleArn" :: NullOrUndefined (String) , "dynamodbConfig" :: NullOrUndefined (DynamodbDataSourceConfig) , "lambdaConfig" :: NullOrUndefined (LambdaDataSourceConfig) , "elasticsearchConfig" :: NullOrUndefined (ElasticsearchDataSourceConfig) } ) -> DataSource
-newDataSource'  customize = (DataSource <<< customize) { "dataSourceArn": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "dynamodbConfig": (NullOrUndefined Nothing), "elasticsearchConfig": (NullOrUndefined Nothing), "lambdaConfig": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing), "serviceRoleArn": (NullOrUndefined Nothing), "type": (NullOrUndefined Nothing) }
+newDataSource' :: ( { "dataSourceArn" :: Maybe (String) , "name" :: Maybe (ResourceName) , "description" :: Maybe (String) , "type" :: Maybe (DataSourceType) , "serviceRoleArn" :: Maybe (String) , "dynamodbConfig" :: Maybe (DynamodbDataSourceConfig) , "lambdaConfig" :: Maybe (LambdaDataSourceConfig) , "elasticsearchConfig" :: Maybe (ElasticsearchDataSourceConfig) } -> {"dataSourceArn" :: Maybe (String) , "name" :: Maybe (ResourceName) , "description" :: Maybe (String) , "type" :: Maybe (DataSourceType) , "serviceRoleArn" :: Maybe (String) , "dynamodbConfig" :: Maybe (DynamodbDataSourceConfig) , "lambdaConfig" :: Maybe (LambdaDataSourceConfig) , "elasticsearchConfig" :: Maybe (ElasticsearchDataSourceConfig) } ) -> DataSource
+newDataSource'  customize = (DataSource <<< customize) { "dataSourceArn": Nothing, "description": Nothing, "dynamodbConfig": Nothing, "elasticsearchConfig": Nothing, "lambdaConfig": Nothing, "name": Nothing, "serviceRoleArn": Nothing, "type": Nothing }
 
 
 
@@ -591,7 +590,7 @@ instance encodeDeleteTypeResponse :: Encode DeleteTypeResponse where encode = ge
 newtype DynamodbDataSourceConfig = DynamodbDataSourceConfig 
   { "tableName" :: (String)
   , "awsRegion" :: (String)
-  , "useCallerCredentials" :: NullOrUndefined (Boolean)
+  , "useCallerCredentials" :: Maybe (Boolean)
   }
 derive instance newtypeDynamodbDataSourceConfig :: Newtype DynamodbDataSourceConfig _
 derive instance repGenericDynamodbDataSourceConfig :: Generic DynamodbDataSourceConfig _
@@ -601,12 +600,12 @@ instance encodeDynamodbDataSourceConfig :: Encode DynamodbDataSourceConfig where
 
 -- | Constructs DynamodbDataSourceConfig from required parameters
 newDynamodbDataSourceConfig :: String -> String -> DynamodbDataSourceConfig
-newDynamodbDataSourceConfig _awsRegion _tableName = DynamodbDataSourceConfig { "awsRegion": _awsRegion, "tableName": _tableName, "useCallerCredentials": (NullOrUndefined Nothing) }
+newDynamodbDataSourceConfig _awsRegion _tableName = DynamodbDataSourceConfig { "awsRegion": _awsRegion, "tableName": _tableName, "useCallerCredentials": Nothing }
 
 -- | Constructs DynamodbDataSourceConfig's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDynamodbDataSourceConfig' :: String -> String -> ( { "tableName" :: (String) , "awsRegion" :: (String) , "useCallerCredentials" :: NullOrUndefined (Boolean) } -> {"tableName" :: (String) , "awsRegion" :: (String) , "useCallerCredentials" :: NullOrUndefined (Boolean) } ) -> DynamodbDataSourceConfig
-newDynamodbDataSourceConfig' _awsRegion _tableName customize = (DynamodbDataSourceConfig <<< customize) { "awsRegion": _awsRegion, "tableName": _tableName, "useCallerCredentials": (NullOrUndefined Nothing) }
+newDynamodbDataSourceConfig' :: String -> String -> ( { "tableName" :: (String) , "awsRegion" :: (String) , "useCallerCredentials" :: Maybe (Boolean) } -> {"tableName" :: (String) , "awsRegion" :: (String) , "useCallerCredentials" :: Maybe (Boolean) } ) -> DynamodbDataSourceConfig
+newDynamodbDataSourceConfig' _awsRegion _tableName customize = (DynamodbDataSourceConfig <<< customize) { "awsRegion": _awsRegion, "tableName": _tableName, "useCallerCredentials": Nothing }
 
 
 
@@ -663,7 +662,7 @@ newGetDataSourceRequest' _apiId _name customize = (GetDataSourceRequest <<< cust
 
 
 newtype GetDataSourceResponse = GetDataSourceResponse 
-  { "dataSource" :: NullOrUndefined (DataSource)
+  { "dataSource" :: Maybe (DataSource)
   }
 derive instance newtypeGetDataSourceResponse :: Newtype GetDataSourceResponse _
 derive instance repGenericGetDataSourceResponse :: Generic GetDataSourceResponse _
@@ -673,12 +672,12 @@ instance encodeGetDataSourceResponse :: Encode GetDataSourceResponse where encod
 
 -- | Constructs GetDataSourceResponse from required parameters
 newGetDataSourceResponse :: GetDataSourceResponse
-newGetDataSourceResponse  = GetDataSourceResponse { "dataSource": (NullOrUndefined Nothing) }
+newGetDataSourceResponse  = GetDataSourceResponse { "dataSource": Nothing }
 
 -- | Constructs GetDataSourceResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetDataSourceResponse' :: ( { "dataSource" :: NullOrUndefined (DataSource) } -> {"dataSource" :: NullOrUndefined (DataSource) } ) -> GetDataSourceResponse
-newGetDataSourceResponse'  customize = (GetDataSourceResponse <<< customize) { "dataSource": (NullOrUndefined Nothing) }
+newGetDataSourceResponse' :: ( { "dataSource" :: Maybe (DataSource) } -> {"dataSource" :: Maybe (DataSource) } ) -> GetDataSourceResponse
+newGetDataSourceResponse'  customize = (GetDataSourceResponse <<< customize) { "dataSource": Nothing }
 
 
 
@@ -703,7 +702,7 @@ newGetGraphqlApiRequest' _apiId customize = (GetGraphqlApiRequest <<< customize)
 
 
 newtype GetGraphqlApiResponse = GetGraphqlApiResponse 
-  { "graphqlApi" :: NullOrUndefined (GraphqlApi)
+  { "graphqlApi" :: Maybe (GraphqlApi)
   }
 derive instance newtypeGetGraphqlApiResponse :: Newtype GetGraphqlApiResponse _
 derive instance repGenericGetGraphqlApiResponse :: Generic GetGraphqlApiResponse _
@@ -713,12 +712,12 @@ instance encodeGetGraphqlApiResponse :: Encode GetGraphqlApiResponse where encod
 
 -- | Constructs GetGraphqlApiResponse from required parameters
 newGetGraphqlApiResponse :: GetGraphqlApiResponse
-newGetGraphqlApiResponse  = GetGraphqlApiResponse { "graphqlApi": (NullOrUndefined Nothing) }
+newGetGraphqlApiResponse  = GetGraphqlApiResponse { "graphqlApi": Nothing }
 
 -- | Constructs GetGraphqlApiResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetGraphqlApiResponse' :: ( { "graphqlApi" :: NullOrUndefined (GraphqlApi) } -> {"graphqlApi" :: NullOrUndefined (GraphqlApi) } ) -> GetGraphqlApiResponse
-newGetGraphqlApiResponse'  customize = (GetGraphqlApiResponse <<< customize) { "graphqlApi": (NullOrUndefined Nothing) }
+newGetGraphqlApiResponse' :: ( { "graphqlApi" :: Maybe (GraphqlApi) } -> {"graphqlApi" :: Maybe (GraphqlApi) } ) -> GetGraphqlApiResponse
+newGetGraphqlApiResponse'  customize = (GetGraphqlApiResponse <<< customize) { "graphqlApi": Nothing }
 
 
 
@@ -744,7 +743,7 @@ newGetIntrospectionSchemaRequest' _apiId _format customize = (GetIntrospectionSc
 
 
 newtype GetIntrospectionSchemaResponse = GetIntrospectionSchemaResponse 
-  { "schema" :: NullOrUndefined (String)
+  { "schema" :: Maybe (String)
   }
 derive instance newtypeGetIntrospectionSchemaResponse :: Newtype GetIntrospectionSchemaResponse _
 derive instance repGenericGetIntrospectionSchemaResponse :: Generic GetIntrospectionSchemaResponse _
@@ -754,12 +753,12 @@ instance encodeGetIntrospectionSchemaResponse :: Encode GetIntrospectionSchemaRe
 
 -- | Constructs GetIntrospectionSchemaResponse from required parameters
 newGetIntrospectionSchemaResponse :: GetIntrospectionSchemaResponse
-newGetIntrospectionSchemaResponse  = GetIntrospectionSchemaResponse { "schema": (NullOrUndefined Nothing) }
+newGetIntrospectionSchemaResponse  = GetIntrospectionSchemaResponse { "schema": Nothing }
 
 -- | Constructs GetIntrospectionSchemaResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetIntrospectionSchemaResponse' :: ( { "schema" :: NullOrUndefined (String) } -> {"schema" :: NullOrUndefined (String) } ) -> GetIntrospectionSchemaResponse
-newGetIntrospectionSchemaResponse'  customize = (GetIntrospectionSchemaResponse <<< customize) { "schema": (NullOrUndefined Nothing) }
+newGetIntrospectionSchemaResponse' :: ( { "schema" :: Maybe (String) } -> {"schema" :: Maybe (String) } ) -> GetIntrospectionSchemaResponse
+newGetIntrospectionSchemaResponse'  customize = (GetIntrospectionSchemaResponse <<< customize) { "schema": Nothing }
 
 
 
@@ -786,7 +785,7 @@ newGetResolverRequest' _apiId _fieldName _typeName customize = (GetResolverReque
 
 
 newtype GetResolverResponse = GetResolverResponse 
-  { "resolver" :: NullOrUndefined (Resolver)
+  { "resolver" :: Maybe (Resolver)
   }
 derive instance newtypeGetResolverResponse :: Newtype GetResolverResponse _
 derive instance repGenericGetResolverResponse :: Generic GetResolverResponse _
@@ -796,12 +795,12 @@ instance encodeGetResolverResponse :: Encode GetResolverResponse where encode = 
 
 -- | Constructs GetResolverResponse from required parameters
 newGetResolverResponse :: GetResolverResponse
-newGetResolverResponse  = GetResolverResponse { "resolver": (NullOrUndefined Nothing) }
+newGetResolverResponse  = GetResolverResponse { "resolver": Nothing }
 
 -- | Constructs GetResolverResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetResolverResponse' :: ( { "resolver" :: NullOrUndefined (Resolver) } -> {"resolver" :: NullOrUndefined (Resolver) } ) -> GetResolverResponse
-newGetResolverResponse'  customize = (GetResolverResponse <<< customize) { "resolver": (NullOrUndefined Nothing) }
+newGetResolverResponse' :: ( { "resolver" :: Maybe (Resolver) } -> {"resolver" :: Maybe (Resolver) } ) -> GetResolverResponse
+newGetResolverResponse'  customize = (GetResolverResponse <<< customize) { "resolver": Nothing }
 
 
 
@@ -826,8 +825,8 @@ newGetSchemaCreationStatusRequest' _apiId customize = (GetSchemaCreationStatusRe
 
 
 newtype GetSchemaCreationStatusResponse = GetSchemaCreationStatusResponse 
-  { "status" :: NullOrUndefined (SchemaStatus)
-  , "details" :: NullOrUndefined (String)
+  { "status" :: Maybe (SchemaStatus)
+  , "details" :: Maybe (String)
   }
 derive instance newtypeGetSchemaCreationStatusResponse :: Newtype GetSchemaCreationStatusResponse _
 derive instance repGenericGetSchemaCreationStatusResponse :: Generic GetSchemaCreationStatusResponse _
@@ -837,12 +836,12 @@ instance encodeGetSchemaCreationStatusResponse :: Encode GetSchemaCreationStatus
 
 -- | Constructs GetSchemaCreationStatusResponse from required parameters
 newGetSchemaCreationStatusResponse :: GetSchemaCreationStatusResponse
-newGetSchemaCreationStatusResponse  = GetSchemaCreationStatusResponse { "details": (NullOrUndefined Nothing), "status": (NullOrUndefined Nothing) }
+newGetSchemaCreationStatusResponse  = GetSchemaCreationStatusResponse { "details": Nothing, "status": Nothing }
 
 -- | Constructs GetSchemaCreationStatusResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetSchemaCreationStatusResponse' :: ( { "status" :: NullOrUndefined (SchemaStatus) , "details" :: NullOrUndefined (String) } -> {"status" :: NullOrUndefined (SchemaStatus) , "details" :: NullOrUndefined (String) } ) -> GetSchemaCreationStatusResponse
-newGetSchemaCreationStatusResponse'  customize = (GetSchemaCreationStatusResponse <<< customize) { "details": (NullOrUndefined Nothing), "status": (NullOrUndefined Nothing) }
+newGetSchemaCreationStatusResponse' :: ( { "status" :: Maybe (SchemaStatus) , "details" :: Maybe (String) } -> {"status" :: Maybe (SchemaStatus) , "details" :: Maybe (String) } ) -> GetSchemaCreationStatusResponse
+newGetSchemaCreationStatusResponse'  customize = (GetSchemaCreationStatusResponse <<< customize) { "details": Nothing, "status": Nothing }
 
 
 
@@ -869,7 +868,7 @@ newGetTypeRequest' _apiId _format _typeName customize = (GetTypeRequest <<< cust
 
 
 newtype GetTypeResponse = GetTypeResponse 
-  { "type" :: NullOrUndefined (Type)
+  { "type" :: Maybe (Type)
   }
 derive instance newtypeGetTypeResponse :: Newtype GetTypeResponse _
 derive instance repGenericGetTypeResponse :: Generic GetTypeResponse _
@@ -879,18 +878,18 @@ instance encodeGetTypeResponse :: Encode GetTypeResponse where encode = genericE
 
 -- | Constructs GetTypeResponse from required parameters
 newGetTypeResponse :: GetTypeResponse
-newGetTypeResponse  = GetTypeResponse { "type": (NullOrUndefined Nothing) }
+newGetTypeResponse  = GetTypeResponse { "type": Nothing }
 
 -- | Constructs GetTypeResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetTypeResponse' :: ( { "type" :: NullOrUndefined (Type) } -> {"type" :: NullOrUndefined (Type) } ) -> GetTypeResponse
-newGetTypeResponse'  customize = (GetTypeResponse <<< customize) { "type": (NullOrUndefined Nothing) }
+newGetTypeResponse' :: ( { "type" :: Maybe (Type) } -> {"type" :: Maybe (Type) } ) -> GetTypeResponse
+newGetTypeResponse'  customize = (GetTypeResponse <<< customize) { "type": Nothing }
 
 
 
 -- | <p>The GraphQL schema is not valid.</p>
 newtype GraphQLSchemaException = GraphQLSchemaException 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeGraphQLSchemaException :: Newtype GraphQLSchemaException _
 derive instance repGenericGraphQLSchemaException :: Generic GraphQLSchemaException _
@@ -900,23 +899,23 @@ instance encodeGraphQLSchemaException :: Encode GraphQLSchemaException where enc
 
 -- | Constructs GraphQLSchemaException from required parameters
 newGraphQLSchemaException :: GraphQLSchemaException
-newGraphQLSchemaException  = GraphQLSchemaException { "message": (NullOrUndefined Nothing) }
+newGraphQLSchemaException  = GraphQLSchemaException { "message": Nothing }
 
 -- | Constructs GraphQLSchemaException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGraphQLSchemaException' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> GraphQLSchemaException
-newGraphQLSchemaException'  customize = (GraphQLSchemaException <<< customize) { "message": (NullOrUndefined Nothing) }
+newGraphQLSchemaException' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> GraphQLSchemaException
+newGraphQLSchemaException'  customize = (GraphQLSchemaException <<< customize) { "message": Nothing }
 
 
 
 -- | <p>Describes a GraphQL API.</p>
 newtype GraphqlApi = GraphqlApi 
-  { "name" :: NullOrUndefined (ResourceName)
-  , "apiId" :: NullOrUndefined (String)
-  , "authenticationType" :: NullOrUndefined (AuthenticationType)
-  , "userPoolConfig" :: NullOrUndefined (UserPoolConfig)
-  , "arn" :: NullOrUndefined (String)
-  , "uris" :: NullOrUndefined (MapOfStringToString)
+  { "name" :: Maybe (ResourceName)
+  , "apiId" :: Maybe (String)
+  , "authenticationType" :: Maybe (AuthenticationType)
+  , "userPoolConfig" :: Maybe (UserPoolConfig)
+  , "arn" :: Maybe (String)
+  , "uris" :: Maybe (MapOfStringToString)
   }
 derive instance newtypeGraphqlApi :: Newtype GraphqlApi _
 derive instance repGenericGraphqlApi :: Generic GraphqlApi _
@@ -926,12 +925,12 @@ instance encodeGraphqlApi :: Encode GraphqlApi where encode = genericEncode opti
 
 -- | Constructs GraphqlApi from required parameters
 newGraphqlApi :: GraphqlApi
-newGraphqlApi  = GraphqlApi { "apiId": (NullOrUndefined Nothing), "arn": (NullOrUndefined Nothing), "authenticationType": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing), "uris": (NullOrUndefined Nothing), "userPoolConfig": (NullOrUndefined Nothing) }
+newGraphqlApi  = GraphqlApi { "apiId": Nothing, "arn": Nothing, "authenticationType": Nothing, "name": Nothing, "uris": Nothing, "userPoolConfig": Nothing }
 
 -- | Constructs GraphqlApi's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGraphqlApi' :: ( { "name" :: NullOrUndefined (ResourceName) , "apiId" :: NullOrUndefined (String) , "authenticationType" :: NullOrUndefined (AuthenticationType) , "userPoolConfig" :: NullOrUndefined (UserPoolConfig) , "arn" :: NullOrUndefined (String) , "uris" :: NullOrUndefined (MapOfStringToString) } -> {"name" :: NullOrUndefined (ResourceName) , "apiId" :: NullOrUndefined (String) , "authenticationType" :: NullOrUndefined (AuthenticationType) , "userPoolConfig" :: NullOrUndefined (UserPoolConfig) , "arn" :: NullOrUndefined (String) , "uris" :: NullOrUndefined (MapOfStringToString) } ) -> GraphqlApi
-newGraphqlApi'  customize = (GraphqlApi <<< customize) { "apiId": (NullOrUndefined Nothing), "arn": (NullOrUndefined Nothing), "authenticationType": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing), "uris": (NullOrUndefined Nothing), "userPoolConfig": (NullOrUndefined Nothing) }
+newGraphqlApi' :: ( { "name" :: Maybe (ResourceName) , "apiId" :: Maybe (String) , "authenticationType" :: Maybe (AuthenticationType) , "userPoolConfig" :: Maybe (UserPoolConfig) , "arn" :: Maybe (String) , "uris" :: Maybe (MapOfStringToString) } -> {"name" :: Maybe (ResourceName) , "apiId" :: Maybe (String) , "authenticationType" :: Maybe (AuthenticationType) , "userPoolConfig" :: Maybe (UserPoolConfig) , "arn" :: Maybe (String) , "uris" :: Maybe (MapOfStringToString) } ) -> GraphqlApi
+newGraphqlApi'  customize = (GraphqlApi <<< customize) { "apiId": Nothing, "arn": Nothing, "authenticationType": Nothing, "name": Nothing, "uris": Nothing, "userPoolConfig": Nothing }
 
 
 
@@ -946,7 +945,7 @@ instance encodeGraphqlApis :: Encode GraphqlApis where encode = genericEncode op
 
 -- | <p>An internal AWS AppSync error occurred. Try your request again.</p>
 newtype InternalFailureException = InternalFailureException 
-  { "message" :: NullOrUndefined (String)
+  { "message" :: Maybe (String)
   }
 derive instance newtypeInternalFailureException :: Newtype InternalFailureException _
 derive instance repGenericInternalFailureException :: Generic InternalFailureException _
@@ -956,12 +955,12 @@ instance encodeInternalFailureException :: Encode InternalFailureException where
 
 -- | Constructs InternalFailureException from required parameters
 newInternalFailureException :: InternalFailureException
-newInternalFailureException  = InternalFailureException { "message": (NullOrUndefined Nothing) }
+newInternalFailureException  = InternalFailureException { "message": Nothing }
 
 -- | Constructs InternalFailureException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInternalFailureException' :: ( { "message" :: NullOrUndefined (String) } -> {"message" :: NullOrUndefined (String) } ) -> InternalFailureException
-newInternalFailureException'  customize = (InternalFailureException <<< customize) { "message": (NullOrUndefined Nothing) }
+newInternalFailureException' :: ( { "message" :: Maybe (String) } -> {"message" :: Maybe (String) } ) -> InternalFailureException
+newInternalFailureException'  customize = (InternalFailureException <<< customize) { "message": Nothing }
 
 
 
@@ -988,7 +987,7 @@ newLambdaDataSourceConfig' _lambdaFunctionArn customize = (LambdaDataSourceConfi
 
 -- | <p>The request exceeded a limit. Try your request again.</p>
 newtype LimitExceededException = LimitExceededException 
-  { "message" :: NullOrUndefined (String)
+  { "message" :: Maybe (String)
   }
 derive instance newtypeLimitExceededException :: Newtype LimitExceededException _
 derive instance repGenericLimitExceededException :: Generic LimitExceededException _
@@ -998,19 +997,19 @@ instance encodeLimitExceededException :: Encode LimitExceededException where enc
 
 -- | Constructs LimitExceededException from required parameters
 newLimitExceededException :: LimitExceededException
-newLimitExceededException  = LimitExceededException { "message": (NullOrUndefined Nothing) }
+newLimitExceededException  = LimitExceededException { "message": Nothing }
 
 -- | Constructs LimitExceededException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newLimitExceededException' :: ( { "message" :: NullOrUndefined (String) } -> {"message" :: NullOrUndefined (String) } ) -> LimitExceededException
-newLimitExceededException'  customize = (LimitExceededException <<< customize) { "message": (NullOrUndefined Nothing) }
+newLimitExceededException' :: ( { "message" :: Maybe (String) } -> {"message" :: Maybe (String) } ) -> LimitExceededException
+newLimitExceededException'  customize = (LimitExceededException <<< customize) { "message": Nothing }
 
 
 
 newtype ListApiKeysRequest = ListApiKeysRequest 
   { "apiId" :: (String)
-  , "nextToken" :: NullOrUndefined (PaginationToken)
-  , "maxResults" :: NullOrUndefined (MaxResults)
+  , "nextToken" :: Maybe (PaginationToken)
+  , "maxResults" :: Maybe (MaxResults)
   }
 derive instance newtypeListApiKeysRequest :: Newtype ListApiKeysRequest _
 derive instance repGenericListApiKeysRequest :: Generic ListApiKeysRequest _
@@ -1020,18 +1019,18 @@ instance encodeListApiKeysRequest :: Encode ListApiKeysRequest where encode = ge
 
 -- | Constructs ListApiKeysRequest from required parameters
 newListApiKeysRequest :: String -> ListApiKeysRequest
-newListApiKeysRequest _apiId = ListApiKeysRequest { "apiId": _apiId, "maxResults": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newListApiKeysRequest _apiId = ListApiKeysRequest { "apiId": _apiId, "maxResults": Nothing, "nextToken": Nothing }
 
 -- | Constructs ListApiKeysRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListApiKeysRequest' :: String -> ( { "apiId" :: (String) , "nextToken" :: NullOrUndefined (PaginationToken) , "maxResults" :: NullOrUndefined (MaxResults) } -> {"apiId" :: (String) , "nextToken" :: NullOrUndefined (PaginationToken) , "maxResults" :: NullOrUndefined (MaxResults) } ) -> ListApiKeysRequest
-newListApiKeysRequest' _apiId customize = (ListApiKeysRequest <<< customize) { "apiId": _apiId, "maxResults": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newListApiKeysRequest' :: String -> ( { "apiId" :: (String) , "nextToken" :: Maybe (PaginationToken) , "maxResults" :: Maybe (MaxResults) } -> {"apiId" :: (String) , "nextToken" :: Maybe (PaginationToken) , "maxResults" :: Maybe (MaxResults) } ) -> ListApiKeysRequest
+newListApiKeysRequest' _apiId customize = (ListApiKeysRequest <<< customize) { "apiId": _apiId, "maxResults": Nothing, "nextToken": Nothing }
 
 
 
 newtype ListApiKeysResponse = ListApiKeysResponse 
-  { "apiKeys" :: NullOrUndefined (ApiKeys)
-  , "nextToken" :: NullOrUndefined (PaginationToken)
+  { "apiKeys" :: Maybe (ApiKeys)
+  , "nextToken" :: Maybe (PaginationToken)
   }
 derive instance newtypeListApiKeysResponse :: Newtype ListApiKeysResponse _
 derive instance repGenericListApiKeysResponse :: Generic ListApiKeysResponse _
@@ -1041,19 +1040,19 @@ instance encodeListApiKeysResponse :: Encode ListApiKeysResponse where encode = 
 
 -- | Constructs ListApiKeysResponse from required parameters
 newListApiKeysResponse :: ListApiKeysResponse
-newListApiKeysResponse  = ListApiKeysResponse { "apiKeys": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newListApiKeysResponse  = ListApiKeysResponse { "apiKeys": Nothing, "nextToken": Nothing }
 
 -- | Constructs ListApiKeysResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListApiKeysResponse' :: ( { "apiKeys" :: NullOrUndefined (ApiKeys) , "nextToken" :: NullOrUndefined (PaginationToken) } -> {"apiKeys" :: NullOrUndefined (ApiKeys) , "nextToken" :: NullOrUndefined (PaginationToken) } ) -> ListApiKeysResponse
-newListApiKeysResponse'  customize = (ListApiKeysResponse <<< customize) { "apiKeys": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newListApiKeysResponse' :: ( { "apiKeys" :: Maybe (ApiKeys) , "nextToken" :: Maybe (PaginationToken) } -> {"apiKeys" :: Maybe (ApiKeys) , "nextToken" :: Maybe (PaginationToken) } ) -> ListApiKeysResponse
+newListApiKeysResponse'  customize = (ListApiKeysResponse <<< customize) { "apiKeys": Nothing, "nextToken": Nothing }
 
 
 
 newtype ListDataSourcesRequest = ListDataSourcesRequest 
   { "apiId" :: (String)
-  , "nextToken" :: NullOrUndefined (PaginationToken)
-  , "maxResults" :: NullOrUndefined (MaxResults)
+  , "nextToken" :: Maybe (PaginationToken)
+  , "maxResults" :: Maybe (MaxResults)
   }
 derive instance newtypeListDataSourcesRequest :: Newtype ListDataSourcesRequest _
 derive instance repGenericListDataSourcesRequest :: Generic ListDataSourcesRequest _
@@ -1063,18 +1062,18 @@ instance encodeListDataSourcesRequest :: Encode ListDataSourcesRequest where enc
 
 -- | Constructs ListDataSourcesRequest from required parameters
 newListDataSourcesRequest :: String -> ListDataSourcesRequest
-newListDataSourcesRequest _apiId = ListDataSourcesRequest { "apiId": _apiId, "maxResults": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newListDataSourcesRequest _apiId = ListDataSourcesRequest { "apiId": _apiId, "maxResults": Nothing, "nextToken": Nothing }
 
 -- | Constructs ListDataSourcesRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListDataSourcesRequest' :: String -> ( { "apiId" :: (String) , "nextToken" :: NullOrUndefined (PaginationToken) , "maxResults" :: NullOrUndefined (MaxResults) } -> {"apiId" :: (String) , "nextToken" :: NullOrUndefined (PaginationToken) , "maxResults" :: NullOrUndefined (MaxResults) } ) -> ListDataSourcesRequest
-newListDataSourcesRequest' _apiId customize = (ListDataSourcesRequest <<< customize) { "apiId": _apiId, "maxResults": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newListDataSourcesRequest' :: String -> ( { "apiId" :: (String) , "nextToken" :: Maybe (PaginationToken) , "maxResults" :: Maybe (MaxResults) } -> {"apiId" :: (String) , "nextToken" :: Maybe (PaginationToken) , "maxResults" :: Maybe (MaxResults) } ) -> ListDataSourcesRequest
+newListDataSourcesRequest' _apiId customize = (ListDataSourcesRequest <<< customize) { "apiId": _apiId, "maxResults": Nothing, "nextToken": Nothing }
 
 
 
 newtype ListDataSourcesResponse = ListDataSourcesResponse 
-  { "dataSources" :: NullOrUndefined (DataSources)
-  , "nextToken" :: NullOrUndefined (PaginationToken)
+  { "dataSources" :: Maybe (DataSources)
+  , "nextToken" :: Maybe (PaginationToken)
   }
 derive instance newtypeListDataSourcesResponse :: Newtype ListDataSourcesResponse _
 derive instance repGenericListDataSourcesResponse :: Generic ListDataSourcesResponse _
@@ -1084,18 +1083,18 @@ instance encodeListDataSourcesResponse :: Encode ListDataSourcesResponse where e
 
 -- | Constructs ListDataSourcesResponse from required parameters
 newListDataSourcesResponse :: ListDataSourcesResponse
-newListDataSourcesResponse  = ListDataSourcesResponse { "dataSources": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newListDataSourcesResponse  = ListDataSourcesResponse { "dataSources": Nothing, "nextToken": Nothing }
 
 -- | Constructs ListDataSourcesResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListDataSourcesResponse' :: ( { "dataSources" :: NullOrUndefined (DataSources) , "nextToken" :: NullOrUndefined (PaginationToken) } -> {"dataSources" :: NullOrUndefined (DataSources) , "nextToken" :: NullOrUndefined (PaginationToken) } ) -> ListDataSourcesResponse
-newListDataSourcesResponse'  customize = (ListDataSourcesResponse <<< customize) { "dataSources": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newListDataSourcesResponse' :: ( { "dataSources" :: Maybe (DataSources) , "nextToken" :: Maybe (PaginationToken) } -> {"dataSources" :: Maybe (DataSources) , "nextToken" :: Maybe (PaginationToken) } ) -> ListDataSourcesResponse
+newListDataSourcesResponse'  customize = (ListDataSourcesResponse <<< customize) { "dataSources": Nothing, "nextToken": Nothing }
 
 
 
 newtype ListGraphqlApisRequest = ListGraphqlApisRequest 
-  { "nextToken" :: NullOrUndefined (PaginationToken)
-  , "maxResults" :: NullOrUndefined (MaxResults)
+  { "nextToken" :: Maybe (PaginationToken)
+  , "maxResults" :: Maybe (MaxResults)
   }
 derive instance newtypeListGraphqlApisRequest :: Newtype ListGraphqlApisRequest _
 derive instance repGenericListGraphqlApisRequest :: Generic ListGraphqlApisRequest _
@@ -1105,18 +1104,18 @@ instance encodeListGraphqlApisRequest :: Encode ListGraphqlApisRequest where enc
 
 -- | Constructs ListGraphqlApisRequest from required parameters
 newListGraphqlApisRequest :: ListGraphqlApisRequest
-newListGraphqlApisRequest  = ListGraphqlApisRequest { "maxResults": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newListGraphqlApisRequest  = ListGraphqlApisRequest { "maxResults": Nothing, "nextToken": Nothing }
 
 -- | Constructs ListGraphqlApisRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListGraphqlApisRequest' :: ( { "nextToken" :: NullOrUndefined (PaginationToken) , "maxResults" :: NullOrUndefined (MaxResults) } -> {"nextToken" :: NullOrUndefined (PaginationToken) , "maxResults" :: NullOrUndefined (MaxResults) } ) -> ListGraphqlApisRequest
-newListGraphqlApisRequest'  customize = (ListGraphqlApisRequest <<< customize) { "maxResults": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newListGraphqlApisRequest' :: ( { "nextToken" :: Maybe (PaginationToken) , "maxResults" :: Maybe (MaxResults) } -> {"nextToken" :: Maybe (PaginationToken) , "maxResults" :: Maybe (MaxResults) } ) -> ListGraphqlApisRequest
+newListGraphqlApisRequest'  customize = (ListGraphqlApisRequest <<< customize) { "maxResults": Nothing, "nextToken": Nothing }
 
 
 
 newtype ListGraphqlApisResponse = ListGraphqlApisResponse 
-  { "graphqlApis" :: NullOrUndefined (GraphqlApis)
-  , "nextToken" :: NullOrUndefined (PaginationToken)
+  { "graphqlApis" :: Maybe (GraphqlApis)
+  , "nextToken" :: Maybe (PaginationToken)
   }
 derive instance newtypeListGraphqlApisResponse :: Newtype ListGraphqlApisResponse _
 derive instance repGenericListGraphqlApisResponse :: Generic ListGraphqlApisResponse _
@@ -1126,20 +1125,20 @@ instance encodeListGraphqlApisResponse :: Encode ListGraphqlApisResponse where e
 
 -- | Constructs ListGraphqlApisResponse from required parameters
 newListGraphqlApisResponse :: ListGraphqlApisResponse
-newListGraphqlApisResponse  = ListGraphqlApisResponse { "graphqlApis": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newListGraphqlApisResponse  = ListGraphqlApisResponse { "graphqlApis": Nothing, "nextToken": Nothing }
 
 -- | Constructs ListGraphqlApisResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListGraphqlApisResponse' :: ( { "graphqlApis" :: NullOrUndefined (GraphqlApis) , "nextToken" :: NullOrUndefined (PaginationToken) } -> {"graphqlApis" :: NullOrUndefined (GraphqlApis) , "nextToken" :: NullOrUndefined (PaginationToken) } ) -> ListGraphqlApisResponse
-newListGraphqlApisResponse'  customize = (ListGraphqlApisResponse <<< customize) { "graphqlApis": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newListGraphqlApisResponse' :: ( { "graphqlApis" :: Maybe (GraphqlApis) , "nextToken" :: Maybe (PaginationToken) } -> {"graphqlApis" :: Maybe (GraphqlApis) , "nextToken" :: Maybe (PaginationToken) } ) -> ListGraphqlApisResponse
+newListGraphqlApisResponse'  customize = (ListGraphqlApisResponse <<< customize) { "graphqlApis": Nothing, "nextToken": Nothing }
 
 
 
 newtype ListResolversRequest = ListResolversRequest 
   { "apiId" :: (String)
   , "typeName" :: (String)
-  , "nextToken" :: NullOrUndefined (PaginationToken)
-  , "maxResults" :: NullOrUndefined (MaxResults)
+  , "nextToken" :: Maybe (PaginationToken)
+  , "maxResults" :: Maybe (MaxResults)
   }
 derive instance newtypeListResolversRequest :: Newtype ListResolversRequest _
 derive instance repGenericListResolversRequest :: Generic ListResolversRequest _
@@ -1149,18 +1148,18 @@ instance encodeListResolversRequest :: Encode ListResolversRequest where encode 
 
 -- | Constructs ListResolversRequest from required parameters
 newListResolversRequest :: String -> String -> ListResolversRequest
-newListResolversRequest _apiId _typeName = ListResolversRequest { "apiId": _apiId, "typeName": _typeName, "maxResults": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newListResolversRequest _apiId _typeName = ListResolversRequest { "apiId": _apiId, "typeName": _typeName, "maxResults": Nothing, "nextToken": Nothing }
 
 -- | Constructs ListResolversRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListResolversRequest' :: String -> String -> ( { "apiId" :: (String) , "typeName" :: (String) , "nextToken" :: NullOrUndefined (PaginationToken) , "maxResults" :: NullOrUndefined (MaxResults) } -> {"apiId" :: (String) , "typeName" :: (String) , "nextToken" :: NullOrUndefined (PaginationToken) , "maxResults" :: NullOrUndefined (MaxResults) } ) -> ListResolversRequest
-newListResolversRequest' _apiId _typeName customize = (ListResolversRequest <<< customize) { "apiId": _apiId, "typeName": _typeName, "maxResults": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newListResolversRequest' :: String -> String -> ( { "apiId" :: (String) , "typeName" :: (String) , "nextToken" :: Maybe (PaginationToken) , "maxResults" :: Maybe (MaxResults) } -> {"apiId" :: (String) , "typeName" :: (String) , "nextToken" :: Maybe (PaginationToken) , "maxResults" :: Maybe (MaxResults) } ) -> ListResolversRequest
+newListResolversRequest' _apiId _typeName customize = (ListResolversRequest <<< customize) { "apiId": _apiId, "typeName": _typeName, "maxResults": Nothing, "nextToken": Nothing }
 
 
 
 newtype ListResolversResponse = ListResolversResponse 
-  { "resolvers" :: NullOrUndefined (Resolvers)
-  , "nextToken" :: NullOrUndefined (PaginationToken)
+  { "resolvers" :: Maybe (Resolvers)
+  , "nextToken" :: Maybe (PaginationToken)
   }
 derive instance newtypeListResolversResponse :: Newtype ListResolversResponse _
 derive instance repGenericListResolversResponse :: Generic ListResolversResponse _
@@ -1170,20 +1169,20 @@ instance encodeListResolversResponse :: Encode ListResolversResponse where encod
 
 -- | Constructs ListResolversResponse from required parameters
 newListResolversResponse :: ListResolversResponse
-newListResolversResponse  = ListResolversResponse { "nextToken": (NullOrUndefined Nothing), "resolvers": (NullOrUndefined Nothing) }
+newListResolversResponse  = ListResolversResponse { "nextToken": Nothing, "resolvers": Nothing }
 
 -- | Constructs ListResolversResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListResolversResponse' :: ( { "resolvers" :: NullOrUndefined (Resolvers) , "nextToken" :: NullOrUndefined (PaginationToken) } -> {"resolvers" :: NullOrUndefined (Resolvers) , "nextToken" :: NullOrUndefined (PaginationToken) } ) -> ListResolversResponse
-newListResolversResponse'  customize = (ListResolversResponse <<< customize) { "nextToken": (NullOrUndefined Nothing), "resolvers": (NullOrUndefined Nothing) }
+newListResolversResponse' :: ( { "resolvers" :: Maybe (Resolvers) , "nextToken" :: Maybe (PaginationToken) } -> {"resolvers" :: Maybe (Resolvers) , "nextToken" :: Maybe (PaginationToken) } ) -> ListResolversResponse
+newListResolversResponse'  customize = (ListResolversResponse <<< customize) { "nextToken": Nothing, "resolvers": Nothing }
 
 
 
 newtype ListTypesRequest = ListTypesRequest 
   { "apiId" :: (String)
   , "format" :: (TypeDefinitionFormat)
-  , "nextToken" :: NullOrUndefined (PaginationToken)
-  , "maxResults" :: NullOrUndefined (MaxResults)
+  , "nextToken" :: Maybe (PaginationToken)
+  , "maxResults" :: Maybe (MaxResults)
   }
 derive instance newtypeListTypesRequest :: Newtype ListTypesRequest _
 derive instance repGenericListTypesRequest :: Generic ListTypesRequest _
@@ -1193,18 +1192,18 @@ instance encodeListTypesRequest :: Encode ListTypesRequest where encode = generi
 
 -- | Constructs ListTypesRequest from required parameters
 newListTypesRequest :: String -> TypeDefinitionFormat -> ListTypesRequest
-newListTypesRequest _apiId _format = ListTypesRequest { "apiId": _apiId, "format": _format, "maxResults": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newListTypesRequest _apiId _format = ListTypesRequest { "apiId": _apiId, "format": _format, "maxResults": Nothing, "nextToken": Nothing }
 
 -- | Constructs ListTypesRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListTypesRequest' :: String -> TypeDefinitionFormat -> ( { "apiId" :: (String) , "format" :: (TypeDefinitionFormat) , "nextToken" :: NullOrUndefined (PaginationToken) , "maxResults" :: NullOrUndefined (MaxResults) } -> {"apiId" :: (String) , "format" :: (TypeDefinitionFormat) , "nextToken" :: NullOrUndefined (PaginationToken) , "maxResults" :: NullOrUndefined (MaxResults) } ) -> ListTypesRequest
-newListTypesRequest' _apiId _format customize = (ListTypesRequest <<< customize) { "apiId": _apiId, "format": _format, "maxResults": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newListTypesRequest' :: String -> TypeDefinitionFormat -> ( { "apiId" :: (String) , "format" :: (TypeDefinitionFormat) , "nextToken" :: Maybe (PaginationToken) , "maxResults" :: Maybe (MaxResults) } -> {"apiId" :: (String) , "format" :: (TypeDefinitionFormat) , "nextToken" :: Maybe (PaginationToken) , "maxResults" :: Maybe (MaxResults) } ) -> ListTypesRequest
+newListTypesRequest' _apiId _format customize = (ListTypesRequest <<< customize) { "apiId": _apiId, "format": _format, "maxResults": Nothing, "nextToken": Nothing }
 
 
 
 newtype ListTypesResponse = ListTypesResponse 
-  { "types" :: NullOrUndefined (TypeList)
-  , "nextToken" :: NullOrUndefined (PaginationToken)
+  { "types" :: Maybe (TypeList)
+  , "nextToken" :: Maybe (PaginationToken)
   }
 derive instance newtypeListTypesResponse :: Newtype ListTypesResponse _
 derive instance repGenericListTypesResponse :: Generic ListTypesResponse _
@@ -1214,12 +1213,12 @@ instance encodeListTypesResponse :: Encode ListTypesResponse where encode = gene
 
 -- | Constructs ListTypesResponse from required parameters
 newListTypesResponse :: ListTypesResponse
-newListTypesResponse  = ListTypesResponse { "nextToken": (NullOrUndefined Nothing), "types": (NullOrUndefined Nothing) }
+newListTypesResponse  = ListTypesResponse { "nextToken": Nothing, "types": Nothing }
 
 -- | Constructs ListTypesResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListTypesResponse' :: ( { "types" :: NullOrUndefined (TypeList) , "nextToken" :: NullOrUndefined (PaginationToken) } -> {"types" :: NullOrUndefined (TypeList) , "nextToken" :: NullOrUndefined (PaginationToken) } ) -> ListTypesResponse
-newListTypesResponse'  customize = (ListTypesResponse <<< customize) { "nextToken": (NullOrUndefined Nothing), "types": (NullOrUndefined Nothing) }
+newListTypesResponse' :: ( { "types" :: Maybe (TypeList) , "nextToken" :: Maybe (PaginationToken) } -> {"types" :: Maybe (TypeList) , "nextToken" :: Maybe (PaginationToken) } ) -> ListTypesResponse
+newListTypesResponse'  customize = (ListTypesResponse <<< customize) { "nextToken": Nothing, "types": Nothing }
 
 
 
@@ -1252,7 +1251,7 @@ instance encodeMaxResults :: Encode MaxResults where encode = genericEncode opti
 
 -- | <p>The resource specified in the request was not found. Check the resource and try again.</p>
 newtype NotFoundException = NotFoundException 
-  { "message" :: NullOrUndefined (String)
+  { "message" :: Maybe (String)
   }
 derive instance newtypeNotFoundException :: Newtype NotFoundException _
 derive instance repGenericNotFoundException :: Generic NotFoundException _
@@ -1262,12 +1261,12 @@ instance encodeNotFoundException :: Encode NotFoundException where encode = gene
 
 -- | Constructs NotFoundException from required parameters
 newNotFoundException :: NotFoundException
-newNotFoundException  = NotFoundException { "message": (NullOrUndefined Nothing) }
+newNotFoundException  = NotFoundException { "message": Nothing }
 
 -- | Constructs NotFoundException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newNotFoundException' :: ( { "message" :: NullOrUndefined (String) } -> {"message" :: NullOrUndefined (String) } ) -> NotFoundException
-newNotFoundException'  customize = (NotFoundException <<< customize) { "message": (NullOrUndefined Nothing) }
+newNotFoundException' :: ( { "message" :: Maybe (String) } -> {"message" :: Maybe (String) } ) -> NotFoundException
+newNotFoundException'  customize = (NotFoundException <<< customize) { "message": Nothing }
 
 
 
@@ -1291,12 +1290,12 @@ instance encodePaginationToken :: Encode PaginationToken where encode = genericE
 
 -- | <p>Describes a resolver.</p>
 newtype Resolver = Resolver 
-  { "typeName" :: NullOrUndefined (ResourceName)
-  , "fieldName" :: NullOrUndefined (ResourceName)
-  , "dataSourceName" :: NullOrUndefined (ResourceName)
-  , "resolverArn" :: NullOrUndefined (String)
-  , "requestMappingTemplate" :: NullOrUndefined (MappingTemplate)
-  , "responseMappingTemplate" :: NullOrUndefined (MappingTemplate)
+  { "typeName" :: Maybe (ResourceName)
+  , "fieldName" :: Maybe (ResourceName)
+  , "dataSourceName" :: Maybe (ResourceName)
+  , "resolverArn" :: Maybe (String)
+  , "requestMappingTemplate" :: Maybe (MappingTemplate)
+  , "responseMappingTemplate" :: Maybe (MappingTemplate)
   }
 derive instance newtypeResolver :: Newtype Resolver _
 derive instance repGenericResolver :: Generic Resolver _
@@ -1306,12 +1305,12 @@ instance encodeResolver :: Encode Resolver where encode = genericEncode options
 
 -- | Constructs Resolver from required parameters
 newResolver :: Resolver
-newResolver  = Resolver { "dataSourceName": (NullOrUndefined Nothing), "fieldName": (NullOrUndefined Nothing), "requestMappingTemplate": (NullOrUndefined Nothing), "resolverArn": (NullOrUndefined Nothing), "responseMappingTemplate": (NullOrUndefined Nothing), "typeName": (NullOrUndefined Nothing) }
+newResolver  = Resolver { "dataSourceName": Nothing, "fieldName": Nothing, "requestMappingTemplate": Nothing, "resolverArn": Nothing, "responseMappingTemplate": Nothing, "typeName": Nothing }
 
 -- | Constructs Resolver's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newResolver' :: ( { "typeName" :: NullOrUndefined (ResourceName) , "fieldName" :: NullOrUndefined (ResourceName) , "dataSourceName" :: NullOrUndefined (ResourceName) , "resolverArn" :: NullOrUndefined (String) , "requestMappingTemplate" :: NullOrUndefined (MappingTemplate) , "responseMappingTemplate" :: NullOrUndefined (MappingTemplate) } -> {"typeName" :: NullOrUndefined (ResourceName) , "fieldName" :: NullOrUndefined (ResourceName) , "dataSourceName" :: NullOrUndefined (ResourceName) , "resolverArn" :: NullOrUndefined (String) , "requestMappingTemplate" :: NullOrUndefined (MappingTemplate) , "responseMappingTemplate" :: NullOrUndefined (MappingTemplate) } ) -> Resolver
-newResolver'  customize = (Resolver <<< customize) { "dataSourceName": (NullOrUndefined Nothing), "fieldName": (NullOrUndefined Nothing), "requestMappingTemplate": (NullOrUndefined Nothing), "resolverArn": (NullOrUndefined Nothing), "responseMappingTemplate": (NullOrUndefined Nothing), "typeName": (NullOrUndefined Nothing) }
+newResolver' :: ( { "typeName" :: Maybe (ResourceName) , "fieldName" :: Maybe (ResourceName) , "dataSourceName" :: Maybe (ResourceName) , "resolverArn" :: Maybe (String) , "requestMappingTemplate" :: Maybe (MappingTemplate) , "responseMappingTemplate" :: Maybe (MappingTemplate) } -> {"typeName" :: Maybe (ResourceName) , "fieldName" :: Maybe (ResourceName) , "dataSourceName" :: Maybe (ResourceName) , "resolverArn" :: Maybe (String) , "requestMappingTemplate" :: Maybe (MappingTemplate) , "responseMappingTemplate" :: Maybe (MappingTemplate) } ) -> Resolver
+newResolver'  customize = (Resolver <<< customize) { "dataSourceName": Nothing, "fieldName": Nothing, "requestMappingTemplate": Nothing, "resolverArn": Nothing, "responseMappingTemplate": Nothing, "typeName": Nothing }
 
 
 
@@ -1364,7 +1363,7 @@ newStartSchemaCreationRequest' _apiId _definition customize = (StartSchemaCreati
 
 
 newtype StartSchemaCreationResponse = StartSchemaCreationResponse 
-  { "status" :: NullOrUndefined (SchemaStatus)
+  { "status" :: Maybe (SchemaStatus)
   }
 derive instance newtypeStartSchemaCreationResponse :: Newtype StartSchemaCreationResponse _
 derive instance repGenericStartSchemaCreationResponse :: Generic StartSchemaCreationResponse _
@@ -1374,22 +1373,22 @@ instance encodeStartSchemaCreationResponse :: Encode StartSchemaCreationResponse
 
 -- | Constructs StartSchemaCreationResponse from required parameters
 newStartSchemaCreationResponse :: StartSchemaCreationResponse
-newStartSchemaCreationResponse  = StartSchemaCreationResponse { "status": (NullOrUndefined Nothing) }
+newStartSchemaCreationResponse  = StartSchemaCreationResponse { "status": Nothing }
 
 -- | Constructs StartSchemaCreationResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newStartSchemaCreationResponse' :: ( { "status" :: NullOrUndefined (SchemaStatus) } -> {"status" :: NullOrUndefined (SchemaStatus) } ) -> StartSchemaCreationResponse
-newStartSchemaCreationResponse'  customize = (StartSchemaCreationResponse <<< customize) { "status": (NullOrUndefined Nothing) }
+newStartSchemaCreationResponse' :: ( { "status" :: Maybe (SchemaStatus) } -> {"status" :: Maybe (SchemaStatus) } ) -> StartSchemaCreationResponse
+newStartSchemaCreationResponse'  customize = (StartSchemaCreationResponse <<< customize) { "status": Nothing }
 
 
 
 -- | <p>Describes a type.</p>
 newtype Type = Type 
-  { "name" :: NullOrUndefined (ResourceName)
-  , "description" :: NullOrUndefined (String)
-  , "arn" :: NullOrUndefined (String)
-  , "definition" :: NullOrUndefined (String)
-  , "format" :: NullOrUndefined (TypeDefinitionFormat)
+  { "name" :: Maybe (ResourceName)
+  , "description" :: Maybe (String)
+  , "arn" :: Maybe (String)
+  , "definition" :: Maybe (String)
+  , "format" :: Maybe (TypeDefinitionFormat)
   }
 derive instance newtypeType :: Newtype Type _
 derive instance repGenericType :: Generic Type _
@@ -1399,12 +1398,12 @@ instance encodeType :: Encode Type where encode = genericEncode options
 
 -- | Constructs Type from required parameters
 newType :: Type
-newType  = Type { "arn": (NullOrUndefined Nothing), "definition": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "format": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing) }
+newType  = Type { "arn": Nothing, "definition": Nothing, "description": Nothing, "format": Nothing, "name": Nothing }
 
 -- | Constructs Type's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newType' :: ( { "name" :: NullOrUndefined (ResourceName) , "description" :: NullOrUndefined (String) , "arn" :: NullOrUndefined (String) , "definition" :: NullOrUndefined (String) , "format" :: NullOrUndefined (TypeDefinitionFormat) } -> {"name" :: NullOrUndefined (ResourceName) , "description" :: NullOrUndefined (String) , "arn" :: NullOrUndefined (String) , "definition" :: NullOrUndefined (String) , "format" :: NullOrUndefined (TypeDefinitionFormat) } ) -> Type
-newType'  customize = (Type <<< customize) { "arn": (NullOrUndefined Nothing), "definition": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "format": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing) }
+newType' :: ( { "name" :: Maybe (ResourceName) , "description" :: Maybe (String) , "arn" :: Maybe (String) , "definition" :: Maybe (String) , "format" :: Maybe (TypeDefinitionFormat) } -> {"name" :: Maybe (ResourceName) , "description" :: Maybe (String) , "arn" :: Maybe (String) , "definition" :: Maybe (String) , "format" :: Maybe (TypeDefinitionFormat) } ) -> Type
+newType'  customize = (Type <<< customize) { "arn": Nothing, "definition": Nothing, "description": Nothing, "format": Nothing, "name": Nothing }
 
 
 
@@ -1428,7 +1427,7 @@ instance encodeTypeList :: Encode TypeList where encode = genericEncode options
 
 -- | <p>You are not authorized to perform this operation.</p>
 newtype UnauthorizedException = UnauthorizedException 
-  { "message" :: NullOrUndefined (String)
+  { "message" :: Maybe (String)
   }
 derive instance newtypeUnauthorizedException :: Newtype UnauthorizedException _
 derive instance repGenericUnauthorizedException :: Generic UnauthorizedException _
@@ -1438,20 +1437,20 @@ instance encodeUnauthorizedException :: Encode UnauthorizedException where encod
 
 -- | Constructs UnauthorizedException from required parameters
 newUnauthorizedException :: UnauthorizedException
-newUnauthorizedException  = UnauthorizedException { "message": (NullOrUndefined Nothing) }
+newUnauthorizedException  = UnauthorizedException { "message": Nothing }
 
 -- | Constructs UnauthorizedException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUnauthorizedException' :: ( { "message" :: NullOrUndefined (String) } -> {"message" :: NullOrUndefined (String) } ) -> UnauthorizedException
-newUnauthorizedException'  customize = (UnauthorizedException <<< customize) { "message": (NullOrUndefined Nothing) }
+newUnauthorizedException' :: ( { "message" :: Maybe (String) } -> {"message" :: Maybe (String) } ) -> UnauthorizedException
+newUnauthorizedException'  customize = (UnauthorizedException <<< customize) { "message": Nothing }
 
 
 
 newtype UpdateApiKeyRequest = UpdateApiKeyRequest 
   { "apiId" :: (String)
   , "id" :: (String)
-  , "description" :: NullOrUndefined (String)
-  , "expires" :: NullOrUndefined (Number)
+  , "description" :: Maybe (String)
+  , "expires" :: Maybe (Number)
   }
 derive instance newtypeUpdateApiKeyRequest :: Newtype UpdateApiKeyRequest _
 derive instance repGenericUpdateApiKeyRequest :: Generic UpdateApiKeyRequest _
@@ -1461,17 +1460,17 @@ instance encodeUpdateApiKeyRequest :: Encode UpdateApiKeyRequest where encode = 
 
 -- | Constructs UpdateApiKeyRequest from required parameters
 newUpdateApiKeyRequest :: String -> String -> UpdateApiKeyRequest
-newUpdateApiKeyRequest _apiId _id = UpdateApiKeyRequest { "apiId": _apiId, "id": _id, "description": (NullOrUndefined Nothing), "expires": (NullOrUndefined Nothing) }
+newUpdateApiKeyRequest _apiId _id = UpdateApiKeyRequest { "apiId": _apiId, "id": _id, "description": Nothing, "expires": Nothing }
 
 -- | Constructs UpdateApiKeyRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateApiKeyRequest' :: String -> String -> ( { "apiId" :: (String) , "id" :: (String) , "description" :: NullOrUndefined (String) , "expires" :: NullOrUndefined (Number) } -> {"apiId" :: (String) , "id" :: (String) , "description" :: NullOrUndefined (String) , "expires" :: NullOrUndefined (Number) } ) -> UpdateApiKeyRequest
-newUpdateApiKeyRequest' _apiId _id customize = (UpdateApiKeyRequest <<< customize) { "apiId": _apiId, "id": _id, "description": (NullOrUndefined Nothing), "expires": (NullOrUndefined Nothing) }
+newUpdateApiKeyRequest' :: String -> String -> ( { "apiId" :: (String) , "id" :: (String) , "description" :: Maybe (String) , "expires" :: Maybe (Number) } -> {"apiId" :: (String) , "id" :: (String) , "description" :: Maybe (String) , "expires" :: Maybe (Number) } ) -> UpdateApiKeyRequest
+newUpdateApiKeyRequest' _apiId _id customize = (UpdateApiKeyRequest <<< customize) { "apiId": _apiId, "id": _id, "description": Nothing, "expires": Nothing }
 
 
 
 newtype UpdateApiKeyResponse = UpdateApiKeyResponse 
-  { "apiKey" :: NullOrUndefined (ApiKey)
+  { "apiKey" :: Maybe (ApiKey)
   }
 derive instance newtypeUpdateApiKeyResponse :: Newtype UpdateApiKeyResponse _
 derive instance repGenericUpdateApiKeyResponse :: Generic UpdateApiKeyResponse _
@@ -1481,24 +1480,24 @@ instance encodeUpdateApiKeyResponse :: Encode UpdateApiKeyResponse where encode 
 
 -- | Constructs UpdateApiKeyResponse from required parameters
 newUpdateApiKeyResponse :: UpdateApiKeyResponse
-newUpdateApiKeyResponse  = UpdateApiKeyResponse { "apiKey": (NullOrUndefined Nothing) }
+newUpdateApiKeyResponse  = UpdateApiKeyResponse { "apiKey": Nothing }
 
 -- | Constructs UpdateApiKeyResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateApiKeyResponse' :: ( { "apiKey" :: NullOrUndefined (ApiKey) } -> {"apiKey" :: NullOrUndefined (ApiKey) } ) -> UpdateApiKeyResponse
-newUpdateApiKeyResponse'  customize = (UpdateApiKeyResponse <<< customize) { "apiKey": (NullOrUndefined Nothing) }
+newUpdateApiKeyResponse' :: ( { "apiKey" :: Maybe (ApiKey) } -> {"apiKey" :: Maybe (ApiKey) } ) -> UpdateApiKeyResponse
+newUpdateApiKeyResponse'  customize = (UpdateApiKeyResponse <<< customize) { "apiKey": Nothing }
 
 
 
 newtype UpdateDataSourceRequest = UpdateDataSourceRequest 
   { "apiId" :: (String)
   , "name" :: (ResourceName)
-  , "description" :: NullOrUndefined (String)
+  , "description" :: Maybe (String)
   , "type" :: (DataSourceType)
-  , "serviceRoleArn" :: NullOrUndefined (String)
-  , "dynamodbConfig" :: NullOrUndefined (DynamodbDataSourceConfig)
-  , "lambdaConfig" :: NullOrUndefined (LambdaDataSourceConfig)
-  , "elasticsearchConfig" :: NullOrUndefined (ElasticsearchDataSourceConfig)
+  , "serviceRoleArn" :: Maybe (String)
+  , "dynamodbConfig" :: Maybe (DynamodbDataSourceConfig)
+  , "lambdaConfig" :: Maybe (LambdaDataSourceConfig)
+  , "elasticsearchConfig" :: Maybe (ElasticsearchDataSourceConfig)
   }
 derive instance newtypeUpdateDataSourceRequest :: Newtype UpdateDataSourceRequest _
 derive instance repGenericUpdateDataSourceRequest :: Generic UpdateDataSourceRequest _
@@ -1508,17 +1507,17 @@ instance encodeUpdateDataSourceRequest :: Encode UpdateDataSourceRequest where e
 
 -- | Constructs UpdateDataSourceRequest from required parameters
 newUpdateDataSourceRequest :: String -> ResourceName -> DataSourceType -> UpdateDataSourceRequest
-newUpdateDataSourceRequest _apiId _name _type = UpdateDataSourceRequest { "apiId": _apiId, "name": _name, "type": _type, "description": (NullOrUndefined Nothing), "dynamodbConfig": (NullOrUndefined Nothing), "elasticsearchConfig": (NullOrUndefined Nothing), "lambdaConfig": (NullOrUndefined Nothing), "serviceRoleArn": (NullOrUndefined Nothing) }
+newUpdateDataSourceRequest _apiId _name _type = UpdateDataSourceRequest { "apiId": _apiId, "name": _name, "type": _type, "description": Nothing, "dynamodbConfig": Nothing, "elasticsearchConfig": Nothing, "lambdaConfig": Nothing, "serviceRoleArn": Nothing }
 
 -- | Constructs UpdateDataSourceRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateDataSourceRequest' :: String -> ResourceName -> DataSourceType -> ( { "apiId" :: (String) , "name" :: (ResourceName) , "description" :: NullOrUndefined (String) , "type" :: (DataSourceType) , "serviceRoleArn" :: NullOrUndefined (String) , "dynamodbConfig" :: NullOrUndefined (DynamodbDataSourceConfig) , "lambdaConfig" :: NullOrUndefined (LambdaDataSourceConfig) , "elasticsearchConfig" :: NullOrUndefined (ElasticsearchDataSourceConfig) } -> {"apiId" :: (String) , "name" :: (ResourceName) , "description" :: NullOrUndefined (String) , "type" :: (DataSourceType) , "serviceRoleArn" :: NullOrUndefined (String) , "dynamodbConfig" :: NullOrUndefined (DynamodbDataSourceConfig) , "lambdaConfig" :: NullOrUndefined (LambdaDataSourceConfig) , "elasticsearchConfig" :: NullOrUndefined (ElasticsearchDataSourceConfig) } ) -> UpdateDataSourceRequest
-newUpdateDataSourceRequest' _apiId _name _type customize = (UpdateDataSourceRequest <<< customize) { "apiId": _apiId, "name": _name, "type": _type, "description": (NullOrUndefined Nothing), "dynamodbConfig": (NullOrUndefined Nothing), "elasticsearchConfig": (NullOrUndefined Nothing), "lambdaConfig": (NullOrUndefined Nothing), "serviceRoleArn": (NullOrUndefined Nothing) }
+newUpdateDataSourceRequest' :: String -> ResourceName -> DataSourceType -> ( { "apiId" :: (String) , "name" :: (ResourceName) , "description" :: Maybe (String) , "type" :: (DataSourceType) , "serviceRoleArn" :: Maybe (String) , "dynamodbConfig" :: Maybe (DynamodbDataSourceConfig) , "lambdaConfig" :: Maybe (LambdaDataSourceConfig) , "elasticsearchConfig" :: Maybe (ElasticsearchDataSourceConfig) } -> {"apiId" :: (String) , "name" :: (ResourceName) , "description" :: Maybe (String) , "type" :: (DataSourceType) , "serviceRoleArn" :: Maybe (String) , "dynamodbConfig" :: Maybe (DynamodbDataSourceConfig) , "lambdaConfig" :: Maybe (LambdaDataSourceConfig) , "elasticsearchConfig" :: Maybe (ElasticsearchDataSourceConfig) } ) -> UpdateDataSourceRequest
+newUpdateDataSourceRequest' _apiId _name _type customize = (UpdateDataSourceRequest <<< customize) { "apiId": _apiId, "name": _name, "type": _type, "description": Nothing, "dynamodbConfig": Nothing, "elasticsearchConfig": Nothing, "lambdaConfig": Nothing, "serviceRoleArn": Nothing }
 
 
 
 newtype UpdateDataSourceResponse = UpdateDataSourceResponse 
-  { "dataSource" :: NullOrUndefined (DataSource)
+  { "dataSource" :: Maybe (DataSource)
   }
 derive instance newtypeUpdateDataSourceResponse :: Newtype UpdateDataSourceResponse _
 derive instance repGenericUpdateDataSourceResponse :: Generic UpdateDataSourceResponse _
@@ -1528,20 +1527,20 @@ instance encodeUpdateDataSourceResponse :: Encode UpdateDataSourceResponse where
 
 -- | Constructs UpdateDataSourceResponse from required parameters
 newUpdateDataSourceResponse :: UpdateDataSourceResponse
-newUpdateDataSourceResponse  = UpdateDataSourceResponse { "dataSource": (NullOrUndefined Nothing) }
+newUpdateDataSourceResponse  = UpdateDataSourceResponse { "dataSource": Nothing }
 
 -- | Constructs UpdateDataSourceResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateDataSourceResponse' :: ( { "dataSource" :: NullOrUndefined (DataSource) } -> {"dataSource" :: NullOrUndefined (DataSource) } ) -> UpdateDataSourceResponse
-newUpdateDataSourceResponse'  customize = (UpdateDataSourceResponse <<< customize) { "dataSource": (NullOrUndefined Nothing) }
+newUpdateDataSourceResponse' :: ( { "dataSource" :: Maybe (DataSource) } -> {"dataSource" :: Maybe (DataSource) } ) -> UpdateDataSourceResponse
+newUpdateDataSourceResponse'  customize = (UpdateDataSourceResponse <<< customize) { "dataSource": Nothing }
 
 
 
 newtype UpdateGraphqlApiRequest = UpdateGraphqlApiRequest 
   { "apiId" :: (String)
   , "name" :: (String)
-  , "authenticationType" :: NullOrUndefined (AuthenticationType)
-  , "userPoolConfig" :: NullOrUndefined (UserPoolConfig)
+  , "authenticationType" :: Maybe (AuthenticationType)
+  , "userPoolConfig" :: Maybe (UserPoolConfig)
   }
 derive instance newtypeUpdateGraphqlApiRequest :: Newtype UpdateGraphqlApiRequest _
 derive instance repGenericUpdateGraphqlApiRequest :: Generic UpdateGraphqlApiRequest _
@@ -1551,17 +1550,17 @@ instance encodeUpdateGraphqlApiRequest :: Encode UpdateGraphqlApiRequest where e
 
 -- | Constructs UpdateGraphqlApiRequest from required parameters
 newUpdateGraphqlApiRequest :: String -> String -> UpdateGraphqlApiRequest
-newUpdateGraphqlApiRequest _apiId _name = UpdateGraphqlApiRequest { "apiId": _apiId, "name": _name, "authenticationType": (NullOrUndefined Nothing), "userPoolConfig": (NullOrUndefined Nothing) }
+newUpdateGraphqlApiRequest _apiId _name = UpdateGraphqlApiRequest { "apiId": _apiId, "name": _name, "authenticationType": Nothing, "userPoolConfig": Nothing }
 
 -- | Constructs UpdateGraphqlApiRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateGraphqlApiRequest' :: String -> String -> ( { "apiId" :: (String) , "name" :: (String) , "authenticationType" :: NullOrUndefined (AuthenticationType) , "userPoolConfig" :: NullOrUndefined (UserPoolConfig) } -> {"apiId" :: (String) , "name" :: (String) , "authenticationType" :: NullOrUndefined (AuthenticationType) , "userPoolConfig" :: NullOrUndefined (UserPoolConfig) } ) -> UpdateGraphqlApiRequest
-newUpdateGraphqlApiRequest' _apiId _name customize = (UpdateGraphqlApiRequest <<< customize) { "apiId": _apiId, "name": _name, "authenticationType": (NullOrUndefined Nothing), "userPoolConfig": (NullOrUndefined Nothing) }
+newUpdateGraphqlApiRequest' :: String -> String -> ( { "apiId" :: (String) , "name" :: (String) , "authenticationType" :: Maybe (AuthenticationType) , "userPoolConfig" :: Maybe (UserPoolConfig) } -> {"apiId" :: (String) , "name" :: (String) , "authenticationType" :: Maybe (AuthenticationType) , "userPoolConfig" :: Maybe (UserPoolConfig) } ) -> UpdateGraphqlApiRequest
+newUpdateGraphqlApiRequest' _apiId _name customize = (UpdateGraphqlApiRequest <<< customize) { "apiId": _apiId, "name": _name, "authenticationType": Nothing, "userPoolConfig": Nothing }
 
 
 
 newtype UpdateGraphqlApiResponse = UpdateGraphqlApiResponse 
-  { "graphqlApi" :: NullOrUndefined (GraphqlApi)
+  { "graphqlApi" :: Maybe (GraphqlApi)
   }
 derive instance newtypeUpdateGraphqlApiResponse :: Newtype UpdateGraphqlApiResponse _
 derive instance repGenericUpdateGraphqlApiResponse :: Generic UpdateGraphqlApiResponse _
@@ -1571,12 +1570,12 @@ instance encodeUpdateGraphqlApiResponse :: Encode UpdateGraphqlApiResponse where
 
 -- | Constructs UpdateGraphqlApiResponse from required parameters
 newUpdateGraphqlApiResponse :: UpdateGraphqlApiResponse
-newUpdateGraphqlApiResponse  = UpdateGraphqlApiResponse { "graphqlApi": (NullOrUndefined Nothing) }
+newUpdateGraphqlApiResponse  = UpdateGraphqlApiResponse { "graphqlApi": Nothing }
 
 -- | Constructs UpdateGraphqlApiResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateGraphqlApiResponse' :: ( { "graphqlApi" :: NullOrUndefined (GraphqlApi) } -> {"graphqlApi" :: NullOrUndefined (GraphqlApi) } ) -> UpdateGraphqlApiResponse
-newUpdateGraphqlApiResponse'  customize = (UpdateGraphqlApiResponse <<< customize) { "graphqlApi": (NullOrUndefined Nothing) }
+newUpdateGraphqlApiResponse' :: ( { "graphqlApi" :: Maybe (GraphqlApi) } -> {"graphqlApi" :: Maybe (GraphqlApi) } ) -> UpdateGraphqlApiResponse
+newUpdateGraphqlApiResponse'  customize = (UpdateGraphqlApiResponse <<< customize) { "graphqlApi": Nothing }
 
 
 
@@ -1586,7 +1585,7 @@ newtype UpdateResolverRequest = UpdateResolverRequest
   , "fieldName" :: (ResourceName)
   , "dataSourceName" :: (ResourceName)
   , "requestMappingTemplate" :: (MappingTemplate)
-  , "responseMappingTemplate" :: NullOrUndefined (MappingTemplate)
+  , "responseMappingTemplate" :: Maybe (MappingTemplate)
   }
 derive instance newtypeUpdateResolverRequest :: Newtype UpdateResolverRequest _
 derive instance repGenericUpdateResolverRequest :: Generic UpdateResolverRequest _
@@ -1596,17 +1595,17 @@ instance encodeUpdateResolverRequest :: Encode UpdateResolverRequest where encod
 
 -- | Constructs UpdateResolverRequest from required parameters
 newUpdateResolverRequest :: String -> ResourceName -> ResourceName -> MappingTemplate -> ResourceName -> UpdateResolverRequest
-newUpdateResolverRequest _apiId _dataSourceName _fieldName _requestMappingTemplate _typeName = UpdateResolverRequest { "apiId": _apiId, "dataSourceName": _dataSourceName, "fieldName": _fieldName, "requestMappingTemplate": _requestMappingTemplate, "typeName": _typeName, "responseMappingTemplate": (NullOrUndefined Nothing) }
+newUpdateResolverRequest _apiId _dataSourceName _fieldName _requestMappingTemplate _typeName = UpdateResolverRequest { "apiId": _apiId, "dataSourceName": _dataSourceName, "fieldName": _fieldName, "requestMappingTemplate": _requestMappingTemplate, "typeName": _typeName, "responseMappingTemplate": Nothing }
 
 -- | Constructs UpdateResolverRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateResolverRequest' :: String -> ResourceName -> ResourceName -> MappingTemplate -> ResourceName -> ( { "apiId" :: (String) , "typeName" :: (ResourceName) , "fieldName" :: (ResourceName) , "dataSourceName" :: (ResourceName) , "requestMappingTemplate" :: (MappingTemplate) , "responseMappingTemplate" :: NullOrUndefined (MappingTemplate) } -> {"apiId" :: (String) , "typeName" :: (ResourceName) , "fieldName" :: (ResourceName) , "dataSourceName" :: (ResourceName) , "requestMappingTemplate" :: (MappingTemplate) , "responseMappingTemplate" :: NullOrUndefined (MappingTemplate) } ) -> UpdateResolverRequest
-newUpdateResolverRequest' _apiId _dataSourceName _fieldName _requestMappingTemplate _typeName customize = (UpdateResolverRequest <<< customize) { "apiId": _apiId, "dataSourceName": _dataSourceName, "fieldName": _fieldName, "requestMappingTemplate": _requestMappingTemplate, "typeName": _typeName, "responseMappingTemplate": (NullOrUndefined Nothing) }
+newUpdateResolverRequest' :: String -> ResourceName -> ResourceName -> MappingTemplate -> ResourceName -> ( { "apiId" :: (String) , "typeName" :: (ResourceName) , "fieldName" :: (ResourceName) , "dataSourceName" :: (ResourceName) , "requestMappingTemplate" :: (MappingTemplate) , "responseMappingTemplate" :: Maybe (MappingTemplate) } -> {"apiId" :: (String) , "typeName" :: (ResourceName) , "fieldName" :: (ResourceName) , "dataSourceName" :: (ResourceName) , "requestMappingTemplate" :: (MappingTemplate) , "responseMappingTemplate" :: Maybe (MappingTemplate) } ) -> UpdateResolverRequest
+newUpdateResolverRequest' _apiId _dataSourceName _fieldName _requestMappingTemplate _typeName customize = (UpdateResolverRequest <<< customize) { "apiId": _apiId, "dataSourceName": _dataSourceName, "fieldName": _fieldName, "requestMappingTemplate": _requestMappingTemplate, "typeName": _typeName, "responseMappingTemplate": Nothing }
 
 
 
 newtype UpdateResolverResponse = UpdateResolverResponse 
-  { "resolver" :: NullOrUndefined (Resolver)
+  { "resolver" :: Maybe (Resolver)
   }
 derive instance newtypeUpdateResolverResponse :: Newtype UpdateResolverResponse _
 derive instance repGenericUpdateResolverResponse :: Generic UpdateResolverResponse _
@@ -1616,19 +1615,19 @@ instance encodeUpdateResolverResponse :: Encode UpdateResolverResponse where enc
 
 -- | Constructs UpdateResolverResponse from required parameters
 newUpdateResolverResponse :: UpdateResolverResponse
-newUpdateResolverResponse  = UpdateResolverResponse { "resolver": (NullOrUndefined Nothing) }
+newUpdateResolverResponse  = UpdateResolverResponse { "resolver": Nothing }
 
 -- | Constructs UpdateResolverResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateResolverResponse' :: ( { "resolver" :: NullOrUndefined (Resolver) } -> {"resolver" :: NullOrUndefined (Resolver) } ) -> UpdateResolverResponse
-newUpdateResolverResponse'  customize = (UpdateResolverResponse <<< customize) { "resolver": (NullOrUndefined Nothing) }
+newUpdateResolverResponse' :: ( { "resolver" :: Maybe (Resolver) } -> {"resolver" :: Maybe (Resolver) } ) -> UpdateResolverResponse
+newUpdateResolverResponse'  customize = (UpdateResolverResponse <<< customize) { "resolver": Nothing }
 
 
 
 newtype UpdateTypeRequest = UpdateTypeRequest 
   { "apiId" :: (String)
   , "typeName" :: (ResourceName)
-  , "definition" :: NullOrUndefined (String)
+  , "definition" :: Maybe (String)
   , "format" :: (TypeDefinitionFormat)
   }
 derive instance newtypeUpdateTypeRequest :: Newtype UpdateTypeRequest _
@@ -1639,17 +1638,17 @@ instance encodeUpdateTypeRequest :: Encode UpdateTypeRequest where encode = gene
 
 -- | Constructs UpdateTypeRequest from required parameters
 newUpdateTypeRequest :: String -> TypeDefinitionFormat -> ResourceName -> UpdateTypeRequest
-newUpdateTypeRequest _apiId _format _typeName = UpdateTypeRequest { "apiId": _apiId, "format": _format, "typeName": _typeName, "definition": (NullOrUndefined Nothing) }
+newUpdateTypeRequest _apiId _format _typeName = UpdateTypeRequest { "apiId": _apiId, "format": _format, "typeName": _typeName, "definition": Nothing }
 
 -- | Constructs UpdateTypeRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateTypeRequest' :: String -> TypeDefinitionFormat -> ResourceName -> ( { "apiId" :: (String) , "typeName" :: (ResourceName) , "definition" :: NullOrUndefined (String) , "format" :: (TypeDefinitionFormat) } -> {"apiId" :: (String) , "typeName" :: (ResourceName) , "definition" :: NullOrUndefined (String) , "format" :: (TypeDefinitionFormat) } ) -> UpdateTypeRequest
-newUpdateTypeRequest' _apiId _format _typeName customize = (UpdateTypeRequest <<< customize) { "apiId": _apiId, "format": _format, "typeName": _typeName, "definition": (NullOrUndefined Nothing) }
+newUpdateTypeRequest' :: String -> TypeDefinitionFormat -> ResourceName -> ( { "apiId" :: (String) , "typeName" :: (ResourceName) , "definition" :: Maybe (String) , "format" :: (TypeDefinitionFormat) } -> {"apiId" :: (String) , "typeName" :: (ResourceName) , "definition" :: Maybe (String) , "format" :: (TypeDefinitionFormat) } ) -> UpdateTypeRequest
+newUpdateTypeRequest' _apiId _format _typeName customize = (UpdateTypeRequest <<< customize) { "apiId": _apiId, "format": _format, "typeName": _typeName, "definition": Nothing }
 
 
 
 newtype UpdateTypeResponse = UpdateTypeResponse 
-  { "type" :: NullOrUndefined (Type)
+  { "type" :: Maybe (Type)
   }
 derive instance newtypeUpdateTypeResponse :: Newtype UpdateTypeResponse _
 derive instance repGenericUpdateTypeResponse :: Generic UpdateTypeResponse _
@@ -1659,12 +1658,12 @@ instance encodeUpdateTypeResponse :: Encode UpdateTypeResponse where encode = ge
 
 -- | Constructs UpdateTypeResponse from required parameters
 newUpdateTypeResponse :: UpdateTypeResponse
-newUpdateTypeResponse  = UpdateTypeResponse { "type": (NullOrUndefined Nothing) }
+newUpdateTypeResponse  = UpdateTypeResponse { "type": Nothing }
 
 -- | Constructs UpdateTypeResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateTypeResponse' :: ( { "type" :: NullOrUndefined (Type) } -> {"type" :: NullOrUndefined (Type) } ) -> UpdateTypeResponse
-newUpdateTypeResponse'  customize = (UpdateTypeResponse <<< customize) { "type": (NullOrUndefined Nothing) }
+newUpdateTypeResponse' :: ( { "type" :: Maybe (Type) } -> {"type" :: Maybe (Type) } ) -> UpdateTypeResponse
+newUpdateTypeResponse'  customize = (UpdateTypeResponse <<< customize) { "type": Nothing }
 
 
 
@@ -1673,7 +1672,7 @@ newtype UserPoolConfig = UserPoolConfig
   { "userPoolId" :: (String)
   , "awsRegion" :: (String)
   , "defaultAction" :: (DefaultAction)
-  , "appIdClientRegex" :: NullOrUndefined (String)
+  , "appIdClientRegex" :: Maybe (String)
   }
 derive instance newtypeUserPoolConfig :: Newtype UserPoolConfig _
 derive instance repGenericUserPoolConfig :: Generic UserPoolConfig _
@@ -1683,10 +1682,10 @@ instance encodeUserPoolConfig :: Encode UserPoolConfig where encode = genericEnc
 
 -- | Constructs UserPoolConfig from required parameters
 newUserPoolConfig :: String -> DefaultAction -> String -> UserPoolConfig
-newUserPoolConfig _awsRegion _defaultAction _userPoolId = UserPoolConfig { "awsRegion": _awsRegion, "defaultAction": _defaultAction, "userPoolId": _userPoolId, "appIdClientRegex": (NullOrUndefined Nothing) }
+newUserPoolConfig _awsRegion _defaultAction _userPoolId = UserPoolConfig { "awsRegion": _awsRegion, "defaultAction": _defaultAction, "userPoolId": _userPoolId, "appIdClientRegex": Nothing }
 
 -- | Constructs UserPoolConfig's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUserPoolConfig' :: String -> DefaultAction -> String -> ( { "userPoolId" :: (String) , "awsRegion" :: (String) , "defaultAction" :: (DefaultAction) , "appIdClientRegex" :: NullOrUndefined (String) } -> {"userPoolId" :: (String) , "awsRegion" :: (String) , "defaultAction" :: (DefaultAction) , "appIdClientRegex" :: NullOrUndefined (String) } ) -> UserPoolConfig
-newUserPoolConfig' _awsRegion _defaultAction _userPoolId customize = (UserPoolConfig <<< customize) { "awsRegion": _awsRegion, "defaultAction": _defaultAction, "userPoolId": _userPoolId, "appIdClientRegex": (NullOrUndefined Nothing) }
+newUserPoolConfig' :: String -> DefaultAction -> String -> ( { "userPoolId" :: (String) , "awsRegion" :: (String) , "defaultAction" :: (DefaultAction) , "appIdClientRegex" :: Maybe (String) } -> {"userPoolId" :: (String) , "awsRegion" :: (String) , "defaultAction" :: (DefaultAction) , "appIdClientRegex" :: Maybe (String) } ) -> UserPoolConfig
+newUserPoolConfig' _awsRegion _defaultAction _userPoolId customize = (UserPoolConfig <<< customize) { "awsRegion": _awsRegion, "defaultAction": _defaultAction, "userPoolId": _userPoolId, "appIdClientRegex": Nothing }
 
